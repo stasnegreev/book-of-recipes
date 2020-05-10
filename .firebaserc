@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "book-of-recipes-53f5a": {
+      "hosting": {
+        "book-of-recipes": [
+          "book-of-recipes-53f5a"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "book-of-recipes",
+      "public": "dist/book-of-recipes",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
