@@ -10,7 +10,8 @@
                  mode="push"
                  [(opened)]="asideMenuOpened"
                  class="aside">
-      <app-aside-menu></app-aside-menu>
+      <app-aside-menu (toggleMenu)="sidenav.toggle()">
+      </app-aside-menu>
     </mat-sidenav>
 
     <mat-sidenav-content class="main">

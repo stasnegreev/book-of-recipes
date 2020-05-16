@@ -5,9 +5,8 @@ import { RecipesTypeComponent } from './components/recipes-type/recipes-type.com
 import { UsersListsComponent } from './components/users-lists/users-lists.component';
 import { UsersFavoritesListsComponent } from './components/users-favorites-lists/users-favorites-lists.component';
 import { UsersPopularsListsComponent } from './components/users-populars-lists/users-populars-lists.component';
-import {RecipesService} from './services/recipes.service';
-
-
+import { SharedModule } from '../shared/shared.module';
+import { SystemService } from './services/system.service';
 
 @NgModule({
   declarations: [
@@ -15,16 +14,17 @@ import {RecipesService} from './services/recipes.service';
     RecipesTypeComponent,
     UsersListsComponent,
     UsersFavoritesListsComponent,
-    UsersPopularsListsComponent
+    UsersPopularsListsComponent,
   ],
   exports: [
     SystemComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   providers: [
-    RecipesService
+    SystemService
   ]
 })
 export class SystemModule { }

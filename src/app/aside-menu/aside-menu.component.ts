@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-aside-menu',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AsideMenuComponent {
 
+  @Output()
+  public toggleMenu = new EventEmitter<void>();
+
+  onToggle() {
+    this.toggleMenu.emit();
+  }
 }

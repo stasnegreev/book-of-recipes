@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-
+import {SystemComponent} from './system/system.component';
+import {AdminPageComponent} from './admin-page/admin-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
     children: [
       {
         path: '',
@@ -15,7 +14,11 @@ const routes: Routes = [
       },
       {
         path: 'system',
-        loadChildren: 'system/system.module.ts'
+        component: SystemComponent,
+      },
+      {
+        path: 'admin',
+        component: AdminPageComponent,
       }
     ],
   },
