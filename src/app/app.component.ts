@@ -8,10 +8,5 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'book-of-recipes';
-  items: Observable<any[]>;
-
-  constructor(firestore: AngularFirestore) {
-    this.items = firestore.collection('users').valueChanges();
-  }
+  public opened: boolean;
 }

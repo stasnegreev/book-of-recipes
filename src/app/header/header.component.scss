@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-image: url("/assets/image/turbo-hedear.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  &__nav-button {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.nav-button {
+  .nav-button__btn {
+    background-color: #727E48;
+  }
+
+  .nav-button__icon {
+    transition: transform ease-in-out 0.5s;
+    transform: rotate(180deg);
+  }
+
+  .nav-button__icon.opened {
+    transform: rotate(0deg);
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo__img {
+    height: 30px;
+  }
+}
