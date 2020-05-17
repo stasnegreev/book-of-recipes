@@ -10,6 +10,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { AsideMenuComponent } from './aside-menu/aside-menu.component';
+import { SystemModule } from './system/system.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AsideMenuComponent } from './aside-menu/aside-menu.component';
     AngularFirestoreModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    SharedModule
+    SharedModule,
+    SystemModule
   ],
   providers: [],
   bootstrap: [AppComponent]
