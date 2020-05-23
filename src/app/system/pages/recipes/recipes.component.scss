@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+.recipes {
+  .recipes__item {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}

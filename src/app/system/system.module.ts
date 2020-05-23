@@ -6,6 +6,10 @@ import { UsersListsComponent } from './components/users-lists/users-lists.compon
 import { UsersFavoritesListsComponent } from './components/users-favorites-lists/users-favorites-lists.component';
 import { UsersPopularsListsComponent } from './components/users-populars-lists/users-populars-lists.component';
 import { SharedModule } from '../shared/shared.module';
+import { RecipesComponent } from './pages/recipes/recipes.component';
+import { RouterModule } from '@angular/router';
+import { SystemRoutingModule } from './system-routing.module';
+import { RecipeComponent } from './components/recipe/recipe.component';
 import { SystemService } from './services/system.service';
 
 @NgModule({
@@ -15,13 +19,17 @@ import { SystemService } from './services/system.service';
     UsersListsComponent,
     UsersFavoritesListsComponent,
     UsersPopularsListsComponent,
+    RecipesComponent,
+    RecipeComponent,
   ],
   exports: [
     SystemComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule,
+    SystemRoutingModule
   ],
   providers: [
     SystemService

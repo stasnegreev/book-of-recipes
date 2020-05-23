@@ -6,22 +6,13 @@ import {AdminPageComponent} from './admin-page/admin-page.component';
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'system',
-      },
-      {
-        path: 'system',
-        component: SystemComponent,
-      },
-      {
-        path: 'admin',
-        component: AdminPageComponent,
-      }
-    ],
+    pathMatch: 'full',
+    redirectTo: 'system',
   },
+  {
+    path: 'admin',
+    component: AdminPageComponent,
+  }
 ];
 
 @NgModule({

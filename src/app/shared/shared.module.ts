@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRadioModule,
     MatSelectModule,
     MatDialogModule,
+    MatExpansionModule,
   ],
   exports: [
     MatSidenavModule,
@@ -36,6 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRadioModule,
     MatSelectModule,
     MatDialogModule,
+    MatExpansionModule,
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,51 @@
+<div class="recipe">
+  <div class="recipe__left-side">
+    <div class="recipe__image">
+    </div>
+  </div>
+  <div class="recipe__right-side">
+    <div class="recipe__right-item recipe__type mat-small mat-caption">
+      - {{recipe.type}} -
+    </div>
+    <div class="recipe__right-item recipe__name mat-h1 mat-headline">
+      {{recipe.name}}
+    </div>
+    <div class="recipe__right-item recipe__time mat-small mat-caption">
+      <mat-icon>access_time</mat-icon>{{recipe.time}} минуты
+    </div>
+    <div class="recipe__right-item recipe__ingredients mat-body mat-body-1">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            ИНДИГРИЕНТЫ
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ul>
+          <li *ngFor="let ing of recipe.ingList" [value]="ing">{{ing}}</li>
+        </ul>
+      </mat-expansion-panel>
+    </div>
+    <div class="recipe__right-item recipe__right-item--two-rows">
+      <div class="recipe__right-sub-item recipe__lists">
+        <mat-form-field appearance="outline" floatLabel="never">
+          <mat-label>ДОБАВИТЬ В ПОДБОРКУ</mat-label>
+          <mat-select>
+            <mat-select-trigger>
+              <span  class="example-additional-selection">
+                   others'
+                  </span>
+            </mat-select-trigger>
+            <mat-option ></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="recipe__right-sub-item recipe__ratings">
+        <mat-icon>star</mat-icon>
+        <mat-icon>star</mat-icon>
+        <mat-icon>star_half</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

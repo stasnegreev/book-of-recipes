@@ -1,0 +1,7 @@
+<div class="container">
+  <ul class="recipes">
+    <li class="recipes__item" *ngFor="let recipe of recipes$ | async">
+      <app-recipe [recipe]="recipe" ></app-recipe>
+    </li>
+  </ul>
+</div>
