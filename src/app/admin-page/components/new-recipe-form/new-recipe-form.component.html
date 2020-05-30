@@ -1,0 +1,62 @@
+<div class="container">
+  <form class="form" [formGroup]="form">
+    <div class="form__title mat-h2 mat-title">
+      Добавить новый рецепт
+    </div>
+
+    <div class="form__field">
+      <label class="mat-h3" id="example-radio-group-label">Тип рецепта</label>
+      <mat-radio-group formControlName="type" class="form__radio-group">
+        <mat-radio-button  class="form__radio-option" *ngFor="let recipe of recipeTypes" [value]="recipe">
+          {{recipe}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+      <mat-form-field appearance="outline"
+                      class="form__field"
+                      [hideRequiredMarker]="false"
+                      [floatLabel]="'auto'">
+        <mat-label>Название рецепта</mat-label>
+        <input formControlName="name" matInput placeholder="Введите название рецепта">
+        <mat-error>Error.Input invalid</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline"  class="form__field">
+        <mat-label class="">Инструкция</mat-label>
+        <textarea formControlName="instruction" matInput class="example-right-align"></textarea>
+      </mat-form-field>
+
+    <button mat-stroked-button  color="primary" (click)="addIngredient()">
+      + Добавить индигриент
+    </button>
+
+    <div class="ing" [formArrayName]="'ingredients'">
+      <div class="ing__container" *ngFor="let ing of ingredients?.controls; let pointIndex=index"
+           [formGroupName]="pointIndex ">
+        <button mat-icon-button color="primary" class="ing__remove" (click)="deleteIngredient(pointIndex)">
+          <mat-icon>remove_circle_outline</mat-icon>
+        </button>
+        <mat-form-field appearance="outline" class="ing__field form__field">
+          <mat-label>Название индигриента</mat-label>
+          <input matInput type="string" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="ing__field form__field">
+          <mat-label>Количество</mat-label>
+          <input matInput type="string" formControlName="amount">
+          <span matSuffix>{{ing.get('unit').value}}</span>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="ing__field form__field">
+          <mat-label>Еденица измерения</mat-label>
+          <input matInput placeholder="Введите название рецепта" formControlName="unit">
+        </mat-form-field>
+    </div>
+    </div>
+    <button type="submit" mat-stroked-button  color="primary" (click)="onSubmit()">
+      Сохранить рецепт
+    </button>
+  </form>
+</div>
+
