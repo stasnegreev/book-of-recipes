@@ -1,7 +1,17 @@
 .container {
+  padding-top: 50px;
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
+
+  .header {
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    height: 50px;
+    top: 0;
+    left: 0;
+  }
 
   .aside {
     min-height: calc(100vh - 50px);

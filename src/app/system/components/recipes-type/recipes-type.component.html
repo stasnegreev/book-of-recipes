@@ -1,1 +1,17 @@
-<p>recipes-type works!</p>
+<div class="container types">
+  <div class="types__item type breakfast" [routerLink]="['/recipes', 'завтраки']">
+    <div class="type__title mat-display-2">ЗАВТРАКИ</div>
+  </div>
+
+  <div class="types__item type snacks" [routerLink]="['/recipes', 'перекусы']">
+    <span class="type__title mat-display-2">ПЕРЕКУСЫ</span>
+  </div>
+
+  <div class="types__item type lunch" [routerLink]="['/recipes', 'обеды']">
+    <span class="type__title mat-display-2">ОБЕДЫ</span>
+  </div>
+
+  <div class="types__item type dinner" [routerLink]="['/recipes', 'ужины']">
+    <span class="type__title mat-display-2">УЖИНЫ</span>
+  </div>
+</div>
