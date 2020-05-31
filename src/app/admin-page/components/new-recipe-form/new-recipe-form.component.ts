@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { AdminPageService } from '../../services/admin-page.service';
-import { RecipeModel } from '../../../shared/models/recipe.model';
-import { IngredientModel } from '../../../shared/models/ingredient.model';
-import { RECIPE_TYPES } from '../../../shared/constans/recipe-types';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RecipeService } from '../../../shared/services/recipe.service.ts/recipe.service';
+import { RECIPE_TYPES } from '../../../shared/constans/recipe-type-options';
+import { RATING } from '../../../shared/constans/rating';
+import {ValidatorValue} from '../../../shared/constans/validator-value';
 
 @Component({
   selector: 'app-new-recipe-form',
   templateUrl: './new-recipe-form.component.html',
   styleUrls: ['./new-recipe-form.component.scss'],
-
 })
-
 export class NewRecipeFormComponent implements OnInit {
   public recipeTypes = RECIPE_TYPES;
+  public ratings = RATING;
   public form: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private adminPageService: AdminPageService,
+    private recipeService: RecipeService,
   ) { }
 
   ngOnInit(): void {
@@ -27,24 +26,19 @@ export class NewRecipeFormComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      instruction: [''],
-      name: [''],
-      rating: [''],
-      time: [''],
-      type: [''],
+      instruction: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.maxLength(ValidatorValue.MAX_LENGTH_INPUT)]],
+      rating: [ValidatorValue.MAX_RATING, [Validators.required, Validators.min(0), Validators.max(ValidatorValue.MAX_RATING)]],
+      type: ['', [Validators.required]],
+      image: [''],
       ingredients: new FormArray([]),
     });
   }
 
   public onSubmit() {
-    const ingListToAdd: string[] = [];
-    const ingredientsToAdd: IngredientModel[] = [];
-    this.form.get('ingredients').value.forEach((ingredient) => {
-      ingredientsToAdd.push(Object.assign({}, new IngredientModel(ingredient)));
-      ingListToAdd.push(ingredient.name);
-    });
-    const recipeToAdd = new RecipeModel(Object.assign({}, this.form.value, { ingList: ingListToAdd, ingredients: ingredientsToAdd }));
-    this.adminPageService.addNewRecipe(recipeToAdd);
+    if (this.form.valid) {
+      this.recipeService.addNewRecipe(this.form);
+    }
   }
 
   public addIngredient() {
@@ -61,5 +55,9 @@ export class NewRecipeFormComponent implements OnInit {
 
   public get ingredients(): FormArray {
     return this.form.get('ingredients') as FormArray;
+  }
+
+  public stars(rating): any[] {
+    return new Array(rating);
   }
 }

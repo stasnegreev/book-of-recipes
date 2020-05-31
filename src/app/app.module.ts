@@ -12,6 +12,7 @@ import { AsideMenuComponent } from './aside-menu/aside-menu.component';
 import { SystemModule } from './system/system.module';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule,
     SharedModule,
     SystemModule,
     AdminPageModule
   ],
-  providers: [],
+  providers: [
+    { provide: BUCKET, useValue: 'gs://book-of-recipes-53f5a.appspot.com' }
+  ],
   exports: [],
   bootstrap: [AppComponent]
 })

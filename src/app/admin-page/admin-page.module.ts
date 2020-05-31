@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminPageComponent } from './admin-page.component';
 import { NewRecipeFormComponent } from './components/new-recipe-form/new-recipe-form.component';
 import { SharedModule } from '../shared/shared.module';
-import {ReactiveFormsModule} from '@angular/forms';
-import {AdminPageService} from './services/admin-page.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,9 +15,6 @@ import {AdminPageService} from './services/admin-page.service';
       CommonModule,
       SharedModule,
       ReactiveFormsModule
-  ],
-  providers: [
-    AdminPageService
   ]
 })
 

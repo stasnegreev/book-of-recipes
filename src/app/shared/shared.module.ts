@@ -10,6 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSelectModule,
     MatDialogModule,
     MatExpansionModule,
+    MaterialFileInputModule,
   ],
   exports: [
     MatSidenavModule,
@@ -39,6 +41,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSelectModule,
     MatDialogModule,
     MatExpansionModule,
+    MaterialFileInputModule,
   ]
 })
 export class SharedModule { }

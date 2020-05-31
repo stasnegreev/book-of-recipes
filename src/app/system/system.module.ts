@@ -10,7 +10,6 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { RouterModule } from '@angular/router';
 import { SystemRoutingModule } from './system-routing.module';
 import { RecipeComponent } from './components/recipe/recipe.component';
-import { SystemService } from './services/system.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +29,6 @@ import { SystemService } from './services/system.service';
     SharedModule,
     RouterModule,
     SystemRoutingModule
-  ],
-  providers: [
-    SystemService
   ]
 })
 export class SystemModule { }
