@@ -1,18 +1,21 @@
-export const RECIPE_TYPES = [
+import { OptionModel } from '../models/option.model';
+import { RecipeTypesNames } from './recipe-types-names';
+
+export const RECIPE_TYPES: OptionModel[] = [
   {
     name: 'Завтраки',
-    value: 'breakfast'
+    value: RecipeTypesNames.BREAKFAST,
   },
   {
     name: 'Обеды',
-    value: 'lunch'
+    value: RecipeTypesNames.LUNCH,
   },
   {
     name: 'Ужины',
-    value: 'dinner'
+    value: RecipeTypesNames.DINNER,
   },
   {
     name: 'Перекусы',
-    value: 'snacks'
+    value: RecipeTypesNames.SNACKS,
   },
 ];

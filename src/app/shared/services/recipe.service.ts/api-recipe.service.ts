@@ -28,11 +28,7 @@ export class ApiRecipeService {
 
   // API CLOUD FIRESTORE
   public apiCreateNewRecipe(data: RecipeModel) {
-    data.ingredients.map((ingredient) => {
-        return Object.assign({}, ingredient);
-    });
-    data.ingredients = Object.assign({}, data.ingredients);
-    data = Object.assign({}, data);
+    data.ingredients = { ...data.ingredients };
     return this.firestore.collection(FbCollections.RECIPES).add({...data});
   }
 

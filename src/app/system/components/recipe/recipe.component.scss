@@ -64,16 +64,20 @@
         }
       }
 
+      &.recipe__ratings {
+        min-width: 120px;
+        .mat-icon{
+          color: #727E48;
+        }
+      }
+
       .recipe__right-sub-item {
+        display: flex;
+        align-items: baseline;
+
+
         &:not(:last-child) {
           margin-right: 15px;
-        }
-
-        &.recipe__ratings {
-          min-width: 120px;
-          .mat-icon{
-            color: #727E48;
-          }
         }
 
         &.recipe__lists {
@@ -85,14 +89,51 @@
             margin: 0;
           }
         }
+
+        &recipe__add-button {
+          width: 100%;
+        }
+
+        &.recipe__count {
+          position: absolute;
+          width: 0;
+          overflow: hidden;
+          transition: width ease-out 0.2s;
+        }
       }
     }
 
     .recipe__right-item.recipe__right-item--two-rows {
+      position: relative;
       display: flex;
       flex-wrap: nowrap;
+      justify-content: space-between;
       align-items: center;
       flex-basis: 40px;
+      margin-bottom: 19px;
     }
+  }
+
+  .mat-flat-button {
+    height: 50px;
+    border-color: #C3824A;
+    width: 100%;
+
+    &.button-disabled {
+      background-color: #D8D9D2;
+    }
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.recipe:hover .recipe__right-side .recipe__right-item .recipe__right-sub-item {
+  &.recipe__ratings {
+  }
+
+  &.recipe__count {
+    width: 50%;
   }
 }

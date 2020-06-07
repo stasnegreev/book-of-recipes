@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Необходимые продукты:</h1>
+<div mat-dialog-content>
+  <ul class="shoppingList__list">
+    <li *ngFor="let ingredients of data" class="shoppingList__list">
+      <span>{{ingredients.name}}</span>, {{ingredients.amount}} {{ingredients.unit}}
+    </li>
+  </ul>
+</div>

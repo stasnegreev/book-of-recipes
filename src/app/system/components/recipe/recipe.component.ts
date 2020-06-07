@@ -4,6 +4,7 @@ import { RecipeService } from '../../../shared/services/recipe.service.ts/recipe
 import { take } from 'rxjs/operators';
 import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
 import { ValidatorValue } from '../../../shared/constans/validator-value';
+import { BasketService } from '../../services/basket.service';
 
 @Component({
   selector: 'app-recipe',
@@ -12,16 +13,19 @@ import { ValidatorValue } from '../../../shared/constans/validator-value';
 })
 export class RecipeComponent  implements OnInit {
 
-  @Input()
-  public recipe: RecipeModel;
+  @Input() public recipe: RecipeModel;
+
   public backgroundImage = { 'background-image': 'none' };
+  public maxRating = ValidatorValue.MAX_RATING;
 
-  constructor(private recipeService: RecipeService) {
-
-  }
+  constructor(
+    private recipeService: RecipeService,
+    private basketService: BasketService,
+  ) { }
 
   ngOnInit() {
     this.subscribeRecipeImageUrl();
+    this.recipe.count = this.recipe.count || ValidatorValue.DEFAULT_QUANTITY;
   }
 
   public subscribeRecipeImageUrl() {
@@ -53,5 +57,17 @@ export class RecipeComponent  implements OnInit {
   }
   public get negativeStarsCount() {
     return new Array(Math.floor(ValidatorValue.MAX_RATING - this.recipe.rating));
+  }
+
+  public decreaseCount() {
+    this.basketService.decreaseCount(this.recipe);
+  }
+
+  public increaseCount() {
+    this.basketService.increaseCount(this.recipe);
+  }
+
+  public addToBasket() {
+    this.basketService.addRecipe(this.recipe);
   }
 }

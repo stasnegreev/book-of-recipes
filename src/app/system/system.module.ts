@@ -10,6 +10,9 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { RouterModule } from '@angular/router';
 import { SystemRoutingModule } from './system-routing.module';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { BasketModalComponent } from './components/basket-modal/basket-modal.component';
+import { BasketService } from './services/basket.service';
+import { ShoppingListComponent } from './components/shoping-list/shopping-list.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     UsersPopularsListsComponent,
     RecipesComponent,
     RecipeComponent,
+    BasketModalComponent,
+    ShoppingListComponent,
   ],
   exports: [
     SystemComponent
@@ -29,6 +34,9 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     SharedModule,
     RouterModule,
     SystemRoutingModule
+  ],
+  providers: [
+    BasketService
   ]
 })
 export class SystemModule { }

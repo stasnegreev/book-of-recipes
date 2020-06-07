@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
 
 @Component({
@@ -6,12 +6,6 @@ import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
   templateUrl: './recipes-type.component.html',
   styleUrls: ['./recipes-type.component.scss']
 })
-export class RecipesTypeComponent implements OnInit {
+export class RecipesTypeComponent {
   public recipeTypes = RecipeTypesNames;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

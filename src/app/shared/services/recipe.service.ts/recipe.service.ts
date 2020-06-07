@@ -16,11 +16,11 @@ export class RecipeService {
   }
 
   public addNewRecipe(form: FormGroup) {
-    const ingListToAdd: string[] = [];
+    const ingredientsListToAdd: string[] = [];
     form.get('ingredients').value.forEach((ingredient) => {
-      ingListToAdd.push(ingredient.name);
+      ingredientsListToAdd.push(ingredient.name);
     });
-    const recipeToAdd = new RecipeModel(Object.assign({}, form.value, { ingList: ingListToAdd }));
+    const recipeToAdd = new RecipeModel({ ...form.value, ingredientsList: ingredientsListToAdd });
     this.apiRecipeService.apiCreateNewRecipe(recipeToAdd).then(
       (resp) => {
         if (form.get('image').value) {

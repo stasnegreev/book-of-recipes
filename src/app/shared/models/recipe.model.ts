@@ -5,15 +5,16 @@ export class RecipeModel {
   name: string;
   instruction: string;
   ingredients: IngredientModel[];
-  ingList: string;
+  ingredientsList: string;
   rating?: number;
+  count?: number;
   id?: string;
 
   constructor(data) {
     this.type = data.type;
     this.name = data.name;
     this.instruction = data.instruction;
-    this.ingList = data.ingList;
+    this.ingredientsList = data.ingredientsList;
     this.rating = data.rating;
     this.ingredients = data.ingredients;
     if (data.id) {

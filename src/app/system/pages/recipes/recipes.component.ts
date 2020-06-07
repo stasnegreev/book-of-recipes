@@ -20,20 +20,17 @@ export class RecipesComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.subscribeRecipes();
   }
 
   private subscribeRecipes(): void {
-    this.route.paramMap.subscribe((params => {
-      this.type = params.get('type');
-    }));
     this.recipes$ = this.route.params.pipe(
       switchMap(params => {
-        this.type = params['type'] || '' ;
+        this.type = params[RecipeFields.TYPE] || '';
         return this.recipeService.getRecipes(RecipeFields.TYPE, this.type);
       })
     );
