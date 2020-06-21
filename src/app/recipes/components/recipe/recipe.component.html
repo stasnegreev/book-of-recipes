@@ -1,6 +1,7 @@
 <div class="recipe">
   <div class="recipe__left-side">
-    <div class="recipe__image"  [ngStyle]="backgroundImage">
+    <div class="recipe__image"  [ngStyle]="{'background-image': backgroundImage}">
+      <mat-spinner *ngIf="isImageLoading"> </mat-spinner>
     </div>
   </div>
   <div class="recipe__right-side">
