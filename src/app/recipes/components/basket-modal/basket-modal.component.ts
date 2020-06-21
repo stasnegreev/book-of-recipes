@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeModel } from '../../../shared/models/recipe.model';
-import { BasketService } from '../../services/basket.service';
+import { BasketService } from '../../services/basket-service/basket.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ShoppingListComponent } from '../shoping-list/shopping-list.component';
 import { map } from 'rxjs/operators';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { RecipeModel } from '../../shared/models/recipe.model';
+import { RecipeModel } from '../../../shared/models/recipe.model';
 import { BehaviorSubject } from 'rxjs';
-import { IngredientModel } from '../../shared/models/ingredient.model';
+import { IngredientModel } from '../../../shared/models/ingredient.model';
 
 @Injectable()
 export class BasketService {
