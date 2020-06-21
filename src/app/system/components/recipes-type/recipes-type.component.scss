@@ -11,6 +11,16 @@
     "breakfast lunch dinner"
     "snacks  lunch dinner";
 
+  @media screen and (max-width: 992px) {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "breakfast"
+      "lunch"
+      "dinner"
+      "snacks";
+  }
+
   &__item {
     width: 100%;
   }
@@ -82,7 +92,7 @@
   .type__title:before {
     backface-visibility: hidden;
     border: 1px solid rgba(#fff, 0);
-    bottom: 0px;
+    bottom: 0;
     content: " ";
     display: block;
     margin: 0 auto;

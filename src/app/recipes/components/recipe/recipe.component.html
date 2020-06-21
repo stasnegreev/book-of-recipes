@@ -29,7 +29,7 @@
       </div>
       <div class="recipe__right-sub-item recipe__count">
         <button mat-flat-button color="primary" (click)="decreaseCount()">-</button>
-        <button mat-flat-button color="basic" disabled class="button-disabled">{{recipe.count}}</button>
+        <button mat-flat-button color="basic" disabled class="button-disabled recipe__count-value">{{recipe.count}}</button>
         <button mat-flat-button color="primary" (click)="increaseCount()">+</button>
       </div>
       <div class="recipe__right-sub-item recipe__add-button">
@@ -37,18 +37,19 @@
           <mat-icon>add_shopping_cart</mat-icon>Добавить в корзину </button>
       </div>
     </div>
-    <div class="recipe__right-item recipe__lists">
-      <mat-form-field appearance="outline" floatLabel="never">
-        <mat-label>ДОБАВИТЬ В ПОДБОРКУ</mat-label>
-        <mat-select>
-          <mat-select-trigger>
-              <span  class="example-additional-selection">
-                   others'
-                  </span>
-          </mat-select-trigger>
-          <mat-option ></mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+<!--    TODO for recipe lists flow-->
+<!--    <div class="recipe__right-item recipe__lists">-->
+<!--      <mat-form-field appearance="outline" floatLabel="never">-->
+<!--        <mat-label>ДОБАВИТЬ В ПОДБОРКУ</mat-label>-->
+<!--        <mat-select>-->
+<!--          <mat-select-trigger>-->
+<!--              <span  class="example-additional-selection">-->
+<!--                   others'-->
+<!--                  </span>-->
+<!--          </mat-select-trigger>-->
+<!--          <mat-option ></mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
   </div>
 </div>
