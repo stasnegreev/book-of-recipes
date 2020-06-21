@@ -19,7 +19,17 @@
 
   &__field {
     width: 100%;
+
+    &.form__field--button {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &.form__field--margin {
+      margin-bottom: 15px;
+    }
   }
+
   &__radio-option {
 
     &:not(:last-child) {
@@ -44,7 +54,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 25px 0;
-    border: 1px solid #3f51b5;
+    border: 1px solid #aaaaaa;
     padding: 15px 0 0;
     z-index: 0;
 
@@ -58,9 +68,14 @@
 
     .ing__field {
       margin-left: 15px;
+
       &:last-child {
         margin-right: 15px;
       }
     }
   }
+}
+
+.footer {
+  margin-top: 25px;
 }

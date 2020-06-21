@@ -9,10 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { RatingStarsDirective } from './directives/rating-stars.directive';
 
 @NgModule({
   declarations: [
-
+    RatingStarsDirective
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRadioModule,
     MatSelectModule,
     MatDialogModule,
+    MatExpansionModule,
+    MaterialFileInputModule,
   ],
   exports: [
     MatSidenavModule,
@@ -36,6 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRadioModule,
     MatSelectModule,
     MatDialogModule,
+    MatExpansionModule,
+    MaterialFileInputModule,
+    RatingStarsDirective,
   ]
 })
 export class SharedModule { }

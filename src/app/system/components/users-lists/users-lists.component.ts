@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './users-lists.component.html',
   styleUrls: ['./users-lists.component.scss']
 })
+
 export class UsersListsComponent {}

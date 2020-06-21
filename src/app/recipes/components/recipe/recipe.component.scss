@@ -1,0 +1,139 @@
+.recipe {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);;
+
+  .recipe__left-side {
+    min-width: 200px;
+    height: 200px;
+    padding: 16px 0 0 16px;
+
+    .recipe__image {
+      background-color: #727E48;
+      height: 100%;
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+  }
+
+  .recipe__right-side {
+    flex-basis: auto;
+    width: 100%;
+    padding: 16px 16px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .recipe__right-item {
+      width: 100%;
+      margin: 0;
+
+      &.recipe__type {
+        flex-basis: 20px;
+        color: #727E48;
+      }
+
+      &.recipe__name {
+        flex-basis: 40px;
+        margin: 0;
+      }
+
+      &.recipe__time {
+        flex-basis: auto;
+        height: 100%;
+        display: flex;
+        margin-bottom: 7px;
+        line-height: 17px;
+        color: #C3824A;
+
+        .mat-icon{
+          height: 15px;
+          width: 15px;
+          margin-right: 7px;
+          font-size: 15px;
+        }
+      }
+
+      &.recipe__ingredients {
+        margin-bottom: 15px;
+
+        .mat-expansion-panel {
+          background-color: #D8D9D2;
+        }
+      }
+
+      &.recipe__ratings {
+        min-width: 120px;
+        .mat-icon{
+          color: #727E48;
+        }
+      }
+
+      .recipe__right-sub-item {
+        display: flex;
+        align-items: baseline;
+
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+
+        &.recipe__lists {
+          width: 100%;
+
+          .mat-form-field {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        &recipe__add-button {
+          width: 100%;
+        }
+
+        &.recipe__count {
+          position: absolute;
+          width: 0;
+          overflow: hidden;
+          transition: width ease-out 0.2s;
+        }
+      }
+    }
+
+    .recipe__right-item.recipe__right-item--two-rows {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      flex-basis: 40px;
+      margin-bottom: 19px;
+    }
+  }
+
+  .mat-flat-button {
+    height: 50px;
+    border-color: #C3824A;
+    width: 100%;
+
+    &.button-disabled {
+      background-color: #D8D9D2;
+    }
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.recipe:hover .recipe__right-side .recipe__right-item .recipe__right-sub-item {
+  &.recipe__ratings {
+  }
+
+  &.recipe__count {
+    width: 50%;
+  }
+}
