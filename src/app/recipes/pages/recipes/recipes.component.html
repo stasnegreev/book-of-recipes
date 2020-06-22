@@ -3,7 +3,5 @@
     <li class="recipes__item" *ngFor="let recipe of recipes$ | async">
       <app-recipe [recipe]="recipe"></app-recipe>
     </li>
-    <app-basket-modal class="basket">
-    </app-basket-modal>
   </ul>
 </div>

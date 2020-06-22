@@ -10,9 +10,7 @@ import { RecipesComponent } from '../recipes/pages/recipes/recipes.component';
 import { RouterModule } from '@angular/router';
 import { SystemRoutingModule } from './system-routing.module';
 import { RecipeComponent } from '../recipes/components/recipe/recipe.component';
-import { BasketModalComponent } from '../recipes/components/basket-modal/basket-modal.component';
-import { BasketService } from '../recipes/services/basket-service/basket.service';
-import { ShoppingListComponent } from '../recipes/components/shoping-list/shopping-list.component';
+import { ShoppingListComponent } from '../main-layout/components/shoping-list/shopping-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +21,6 @@ import { ShoppingListComponent } from '../recipes/components/shoping-list/shoppi
     UsersPopularsListsComponent,
     RecipesComponent,
     RecipeComponent,
-    BasketModalComponent,
     ShoppingListComponent,
   ],
   exports: [
@@ -35,8 +32,5 @@ import { ShoppingListComponent } from '../recipes/components/shoping-list/shoppi
     RouterModule,
     SystemRoutingModule
   ],
-  providers: [
-    BasketService
-  ]
 })
 export class SystemModule { }

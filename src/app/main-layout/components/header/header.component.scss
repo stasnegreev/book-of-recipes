@@ -18,6 +18,15 @@
     display: flex;
     align-items: center;
   }
+
+  .header__basket-button {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .nav-button {
@@ -32,6 +41,12 @@
 
   .nav-button__icon.active {
     transform: rotate(0deg);
+  }
+}
+
+.basket-button {
+  .basket-button__btn {
+    background-color: #727E48;
   }
 }
 

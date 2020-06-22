@@ -4,7 +4,7 @@ import { RecipeService } from '../../../shared/services/recipe.service.ts/recipe
 import { take } from 'rxjs/operators';
 import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
 import { ValidatorValue } from '../../../shared/constans/validator-value';
-import { BasketService } from '../../services/basket-service/basket.service';
+import { BasketService } from '../../../shared/services/basket-service/basket.service';
 
 @Component({
   selector: 'app-recipe',

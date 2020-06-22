@@ -13,12 +13,14 @@ import { SystemModule } from './system/system.module';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+import {BasketModalComponent} from './main-layout/components/basket-modal/basket-modal.component';
 
 @NgModule({
   declarations: [
     MainLayoutComponent,
     HeaderComponent,
     AsideMenuComponent,
+    BasketModalComponent
   ],
   imports: [
     BrowserModule,

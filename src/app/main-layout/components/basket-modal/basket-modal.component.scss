@@ -21,6 +21,12 @@
     overflow: auto;
     max-height: calc(100vh - 82px - 100px);
 
+    @media screen and (max-width: 576px) {
+      height: 100vh;
+      max-height: calc(100vh - 50px - 100px);
+      width: 100%;
+    }
+
     .basket__item {
       margin-bottom: 12px;
       padding: 16px;

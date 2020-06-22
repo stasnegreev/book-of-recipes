@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { RecipeModel } from '../../../shared/models/recipe.model';
+import { RecipeModel } from '../../models/recipe.model';
 import { BehaviorSubject } from 'rxjs';
-import { IngredientModel } from '../../../shared/models/ingredient.model';
+import { IngredientModel } from '../../models/ingredient.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BasketService {
   public basket: {[key: string]: RecipeModel} = {};
   public $basketList = new BehaviorSubject(this.basket);
@@ -37,7 +39,8 @@ export class BasketService {
   public getBasket() {
     return this.$basketList;
   }
-  getShoppingList(): IngredientModel[] {
+
+  public getShoppingList(): IngredientModel[] {
     const shoppingList: { [key: string]: IngredientModel} = {};
     const basketItemsList: RecipeModel[] = Object.values(this.basket);
     basketItemsList.forEach((recipe: RecipeModel) => {
