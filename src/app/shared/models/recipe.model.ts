@@ -7,18 +7,19 @@ export class RecipeModel {
   ingredients: IngredientModel[];
   ingredientsList: string;
   rating?: number;
+  isInList?: boolean;
   count?: number;
   id?: string;
 
   constructor(data) {
-    this.type = data.type;
-    this.name = data.name;
-    this.instruction = data.instruction;
-    this.ingredientsList = data.ingredientsList;
-    this.rating = data.rating;
-    this.ingredients = data.ingredients;
+    this.type = data.type.toLowerCase();
+    this.name = data.name.toLowerCase();
+    this.instruction = data.instruction.toLowerCase();
+    this.ingredientsList = data.ingredientsList.toLowerCase();
+    this.rating = data.rating.toLowerCase();
+    this.ingredients = data.ingredients.toLowerCase();
     if (data.id) {
-      this.id = data.id;
+      this.id = data.id.toLowerCase();
     }
   }
 }

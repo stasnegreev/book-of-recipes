@@ -1,4 +1,9 @@
-<h1 mat-dialog-title>Необходимые продукты:</h1>
+<h1 mat-dialog-title class="shoppingList__title">
+  <button mat-mini-fab color="primary" (click)="saveData()" class="shoppingList__button">
+    <mat-icon>share</mat-icon>
+  </button>
+  <span>Необходимые продукты:</span>
+</h1>
 <div mat-dialog-content>
   <ul class="shoppingList__list">
     <li *ngFor="let ingredients of data" class="shoppingList__list">

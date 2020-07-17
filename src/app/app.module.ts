@@ -11,16 +11,20 @@ import { SharedModule } from './shared/shared.module';
 import { AsideMenuComponent } from './main-layout/components/aside-menu/aside-menu.component';
 import { SystemModule } from './system/system.module';
 import { AdminPageModule } from './admin-page/admin-page.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
-import {BasketModalComponent} from './main-layout/components/basket-modal/basket-modal.component';
+import { BasketModalComponent } from './main-layout/components/basket-modal/basket-modal.component';
+import { SearchInputComponent } from './UI/search-input/search-input.component';
+import { SearchResultViewComponent } from './UI/search-result-view/search-result-view.component';
 
 @NgModule({
   declarations: [
     MainLayoutComponent,
     HeaderComponent,
     AsideMenuComponent,
-    BasketModalComponent
+    BasketModalComponent,
+    SearchInputComponent,
+    SearchResultViewComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import {BasketModalComponent} from './main-layout/components/basket-modal/basket
     BrowserAnimationsModule,
     SharedModule,
     SystemModule,
-    AdminPageModule
+    AdminPageModule,
+    FormsModule,
   ],
   providers: [
     { provide: BUCKET, useValue: 'gs://book-of-recipes-53f5a.appspot.com' }

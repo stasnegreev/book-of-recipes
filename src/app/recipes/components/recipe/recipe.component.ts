@@ -69,4 +69,8 @@ export class RecipeComponent  implements OnInit {
   public addToBasket() {
     this.basketService.addRecipe(this.recipe);
   }
+
+  public deleteFromBasket() {
+    this.basketService.deleteRecipe(this.recipe);
+  }
 }

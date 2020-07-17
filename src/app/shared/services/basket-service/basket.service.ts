@@ -13,11 +13,13 @@ export class BasketService {
   constructor() { }
 
   public addRecipe(recipe: RecipeModel) {
+    recipe.isInList = true;
     this.basket[recipe.id ] = recipe;
     this.$basketList.next(this.basket);
   }
 
   public deleteRecipe(recipe: RecipeModel) {
+    recipe.isInList = false;
     delete this.basket[recipe.id];
     this.$basketList.next(this.basket);
   }
@@ -32,6 +34,7 @@ export class BasketService {
 
   public increaseCount(recipe: RecipeModel) {
     recipe.count++;
+    recipe.isInList = true;
     this.basket[recipe.id] = recipe;
     this.$basketList.next(this.basket);
   }

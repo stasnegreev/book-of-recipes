@@ -1,0 +1,11 @@
+<div class="search-view" [class.active]="isActive">
+  <div class="search-view__results">
+    <button *ngIf="!((results$ | async)?.length)" mat-button disabled color="basic" class="search-view__item-button">НЕТ РЕЗУЛЬТАТОВ ПО ДАННОМУ ЗАПРОСУ</button>
+    <ul>
+      <li *ngFor="let result of results$ | async"
+          [routerLink]="['/recipes/recipe', result.id]" (click)="reset()">
+        <button mat-button color="basic" class="search-view__item-button">{{result.name}}</button>
+      </li>
+    </ul>
+  </div>
+</div>

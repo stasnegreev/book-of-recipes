@@ -6,6 +6,9 @@
 
 .recipes {
   position: relative;
+  @media screen and (max-width: 637px) {
+    width: 100%;
+  }
 
   .recipes__item {
     &:not(:last-child) {

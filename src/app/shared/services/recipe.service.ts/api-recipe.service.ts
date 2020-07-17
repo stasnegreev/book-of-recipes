@@ -3,7 +3,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { RecipeModel } from '../../models/recipe.model';
 import { FbCollections } from '../../constans/fb-collections';
-import { take } from 'rxjs/operators';
+import { first, take } from 'rxjs/operators';
+
+export interface Item { name: string; }
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +38,21 @@ export class ApiRecipeService {
     return this.firestore.collection(
       FbCollections.RECIPES, ref => ref.where(filterType, '==', filterValue)
     ).valueChanges({ idField: 'id' });
+  }
+
+  public apiGetRecipesByName(filterType: string, filterValue: string) {
+    const nextSymbol = String.fromCharCode(filterValue.charCodeAt(0) + 1);
+    return this.firestore.collection(
+      FbCollections.RECIPES, ref => ref.where('name', '>=', filterValue)
+        .where('name', '<', nextSymbol)
+    ).valueChanges({ idField: 'id' }).pipe(
+      first()
+    );
+  }
+
+  public apiGetRecipeByID(recipeID: string) {
+    return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).valueChanges().pipe(
+      first()
+    );
   }
 }

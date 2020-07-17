@@ -30,6 +30,13 @@
     }
   }
 
+  .form__radio-group {
+    @media screen and (max-width: 635px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   &__radio-option {
 
     &:not(:last-child) {
@@ -57,6 +64,14 @@
     border: 1px solid #aaaaaa;
     padding: 15px 0 0;
     z-index: 0;
+
+    @media screen and (max-width: 727px) {
+      flex-direction: column;
+
+      .ing__field {
+        margin-right: 15px;
+      }
+    }
 
     .ing__remove {
       position: absolute;

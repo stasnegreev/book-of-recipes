@@ -22,6 +22,16 @@
   .main {
     min-height: calc(100vh - 50px);
     background-color: #F5EFE8;
+    background-image: url("/assets/image/background-lb.svg"), url("/assets/image/background-rb.svg") ;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right bottom;
+    background-size: 30vw, 30vw;
+    background-attachment: fixed;
+
+    @media screen and (max-width: 576px) {
+      background-repeat: no-repeat, no-repeat;
+      background-size: 0, 90vw;
+    }
   }
 
   .basket {
@@ -36,7 +46,7 @@
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
     transition: height ease-out 1s;
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 1194px) {
       top: 49px;
       left: 0;
       width: 100%;

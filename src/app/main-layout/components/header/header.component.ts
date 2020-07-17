@@ -16,6 +16,8 @@ export class HeaderComponent {
   @Output()
   public clickBasketButton = new EventEmitter<void>();
 
+  public queryValue: string;
+
   public onToggleMenu() {
     this.clickMenuButton.emit();
   }

@@ -33,7 +33,26 @@ export class RecipeService {
 
   public getRecipes(filterType: string, filterValue: string): Observable<RecipeModel[]> {
     return this.apiRecipeService.apiGetRecipes(filterType, filterValue).pipe(
-      map((data) => data as RecipeModel[])
+      map((data) => {
+        return  data as RecipeModel[];
+      })
+    );
+  }
+
+  public getRecipeByID(recipeID: string): Observable<RecipeModel> {
+    return this.apiRecipeService.apiGetRecipeByID(recipeID).pipe(
+      map((data) => {
+        return  data as RecipeModel;
+      })
+    );
+  }
+
+  public getRecipesByName(filterType: string, filterValue: string): Observable<RecipeModel[]> {
+    filterValue = filterValue.toLowerCase();
+    return this.apiRecipeService.apiGetRecipesByName(filterType, filterValue).pipe(
+      map((data) => {
+        return  data as RecipeModel[];
+      })
     );
   }
 

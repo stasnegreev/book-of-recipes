@@ -3,8 +3,11 @@
   </div>
   <div class="basket__header">
     <div class="basket__title mat-h2 mat-title">
-      Корзина
+      Список рецептов
     </div>
+    <button mat-flat-button class="basket__count-button" color="basic" (click)="showShoppingList()">
+      <mat-icon>shopping_cart</mat-icon>Показать список продуктов
+    </button>
   </div>
   <div class="basket__list">
     <div class="basket__item" *ngFor="let recipe of basketList">
@@ -12,18 +15,13 @@
         {{recipe.name}}
       </div>
       <div class="basket__count">
-        <button mat-flat-button class="basket-count-button" color="primary" (click)="decreaseCount(recipe)">-</button>
-        <button mat-flat-button class="basket-count-button button-disabled" disabled>{{recipe.count}}</button>
-        <button mat-flat-button class="basket-count-button" color="primary" (click)="increaseCount(recipe)">+</button>
-        <button mat-icon-button class="basket__button-delete" color="primary"  (click)="deleteRecipe(recipe)">
+        <button mat-flat-button class="basket__count-button" color="primary" (click)="decreaseCount(recipe)">-</button>
+        <button mat-flat-button class="basket__count-value button-disabled" disabled>{{recipe.count}}</button>
+        <button mat-flat-button class="basket__count-button" color="primary" (click)="increaseCount(recipe)">+</button>
+        <button mat-icon-button class="basket__button-delete" color="warn"  (click)="deleteRecipe(recipe)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
     </div>
-  </div>
-  <div class="basket__footer">
-    <button mat-flat-button class="basket-count-button" color="basic" (click)="showShoppingList()">
-      <mat-icon>shopping_cart</mat-icon>Показать список продуктов
-    </button>
   </div>
 </div>
