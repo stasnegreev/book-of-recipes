@@ -13,7 +13,6 @@ import { SystemModule } from './system/system.module';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
-import { BasketModalComponent } from './main-layout/components/basket-modal/basket-modal.component';
 import { SearchInputComponent } from './UI/search-input/search-input.component';
 import { SearchResultViewComponent } from './UI/search-result-view/search-result-view.component';
 
@@ -22,7 +21,6 @@ import { SearchResultViewComponent } from './UI/search-result-view/search-result
     MainLayoutComponent,
     HeaderComponent,
     AsideMenuComponent,
-    BasketModalComponent,
     SearchInputComponent,
     SearchResultViewComponent
   ],

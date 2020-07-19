@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RecipeModel } from '../../../shared/models/recipe.model';
 import { BasketService } from '../../../shared/services/basket-service/basket.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ShoppingListComponent } from '../shoping-list/shopping-list.component';
+import { ShoppingListComponent } from '../../../main-layout/components/shoping-list/shopping-list.component';
 import { map } from 'rxjs/operators';
-import {IngredientModel} from '../../../shared/models/ingredient.model';
+import { IngredientModel } from '../../../shared/models/ingredient.model';
 
 @Component({
   selector: 'app-basket-modal',
@@ -13,7 +13,7 @@ import {IngredientModel} from '../../../shared/models/ingredient.model';
 })
 export class BasketModalComponent implements OnInit {
   @Input()
-  public isShowBasket = false;
+  public isShowBasket = true;
 
   public basketList: RecipeModel[];
 

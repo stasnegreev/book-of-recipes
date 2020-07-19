@@ -11,6 +11,8 @@
     flex-direction: column;
 
     .basket__title {
+      width: 100%;
+      text-align: center;
       padding: 16px;
       margin: 0;
     }
@@ -28,13 +30,7 @@
   .basket__list {
     background-color: #727E48;
     overflow: auto;
-    max-height: calc(100vh - 82px - 100px);
-
-    @media screen and (max-width: 1194px) {
-      height: 100vh;
-      max-height: calc(100vh - 169px);
-      width: 100%;
-    }
+    width: 100%;
 
     .basket__item {
       margin-bottom: 12px;

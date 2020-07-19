@@ -1,7 +1,6 @@
 <div class="container">
   <header class="header">
     <app-header (clickMenuButton)="sidenav.toggle()"
-                (clickBasketButton)="basket.toggleBasket()"
                 [isOpenMenuButtonActive]="asideMenuOpened">
     </app-header>
   </header>
@@ -19,7 +18,4 @@
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
-
-  <app-basket-modal #basket class="basket">
-  </app-basket-modal>
 </div>

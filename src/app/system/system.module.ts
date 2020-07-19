@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import { SystemRoutingModule } from './system-routing.module';
 import { RecipeComponent } from '../recipes/components/recipe/recipe.component';
 import { ShoppingListComponent } from '../main-layout/components/shoping-list/shopping-list.component';
+import { BasketPageComponent } from './pages/basket-page/basket-page.component';
+import { BasketModalComponent } from './components/basket-modal/basket-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,17 @@ import { ShoppingListComponent } from '../main-layout/components/shoping-list/sh
     RecipesComponent,
     RecipeComponent,
     ShoppingListComponent,
+    BasketPageComponent,
+    BasketModalComponent,
   ],
   exports: [
     StartPageComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule,
-    SystemRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        RouterModule,
+        SystemRoutingModule,
+    ],
 })
 export class SystemModule { }
