@@ -1,8 +1,8 @@
 <div class="basket">
   <div class="basket__header">
     <div class="basket__title mat-h2 mat-title">
-      <span *ngIf="basketList.length">Список рецептов</span>
-      <span *ngIf="!basketList.length">Текущий список рецептов пуст</span>
+      <span *ngIf="basketList?.length">Список рецептов</span>
+      <span *ngIf="!basketList?.length">Текущий список рецептов пуст</span>
     </div>
     <button mat-flat-button class="basket__count-button" color="basic" (click)="showShoppingList()">
       <mat-icon>shopping_cart</mat-icon>Показать список продуктов

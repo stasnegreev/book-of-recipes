@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { SearchInputComponent } from './UI/search-input/search-input.component';
 import { SearchResultViewComponent } from './UI/search-result-view/search-result-view.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SearchResultViewComponent } from './UI/search-result-view/search-result
     SystemModule,
     AdminModule,
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: BUCKET, useValue: 'gs://book-of-recipes-53f5a.appspot.com' }

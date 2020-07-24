@@ -1,4 +1,4 @@
-<mat-spinner *ngIf="!(recipes$ | async).length"
+<mat-spinner *ngIf="!((recipes$ | async)?.length)"
              class="spiner">
 </mat-spinner>
 <div *ngIf="(recipes$ | async)" class="container">
