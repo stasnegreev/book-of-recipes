@@ -50,12 +50,12 @@
         </button>
         <mat-form-field appearance="outline" class="ing__field ing__field--name">
           <mat-label>Название индигриента</mat-label>
-          <input matInput type="string" formControlName="name">
+          <input matInput type="text" formControlName="name">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="ing__field ing__field--amount">
           <mat-label>Количество</mat-label>
-          <input matInput type="string" formControlName="amount">
+          <input matInput type="text" formControlName="amount">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="ing__field ing__field--unit">
@@ -66,7 +66,7 @@
     </div>
 
     <div class="form__field form__field--button">
-      <button mat-stroked-button  color="basic" (click)="addIngredient()">
+      <button mat-stroked-button  color="basic" (click)="addIngredient(); ">
         Добавить индигриент
         <mat-icon>add_circle_outline</mat-icon>
       </button>

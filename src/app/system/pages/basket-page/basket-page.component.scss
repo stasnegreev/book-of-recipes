@@ -35,6 +35,14 @@
     .basket__item {
       margin-bottom: 12px;
       padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media screen and (max-width: 637px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       &:not(:first-child){
         border-top: #D8D9D2 1px dashed;
@@ -54,6 +62,7 @@
 
           &.button-disabled {
             background-color: #D8D9D2;
+            width: 100%;
           }
         }
       }

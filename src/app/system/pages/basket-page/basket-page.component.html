@@ -15,7 +15,7 @@
       </div>
       <div class="basket__count">
         <button mat-flat-button class="basket__count-button" color="primary" (click)="decreaseCount(recipe)">-</button>
-        <button mat-flat-button class="basket__count-value button-disabled" disabled>{{recipe.count}}</button>
+        <button mat-flat-button class="basket__count-button button-disabled" disabled>{{recipe.count}}</button>
         <button mat-flat-button class="basket__count-button" color="primary" (click)="increaseCount(recipe)">+</button>
         <button mat-icon-button class="basket__button-delete" color="warn"  (click)="deleteRecipe(recipe)">
           <mat-icon>delete</mat-icon>

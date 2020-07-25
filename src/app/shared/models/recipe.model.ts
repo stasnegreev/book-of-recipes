@@ -5,21 +5,24 @@ export class RecipeModel {
   name: string;
   instruction: string;
   ingredients: IngredientModel[];
-  ingredientsList: string;
+  ingredientsList: string[];
   rating?: number;
   isInList?: boolean;
   count?: number;
   id?: string;
 
   constructor(data) {
-    this.type = data.type.toLowerCase();
+    this.type = data.type;
     this.name = data.name.toLowerCase();
-    this.instruction = data.instruction.toLowerCase();
-    this.ingredientsList = data.ingredientsList.toLowerCase();
-    this.rating = data.rating.toLowerCase();
-    this.ingredients = data.ingredients.toLowerCase();
+    this.instruction = data.instruction;
+    this.ingredientsList = data.ingredientsList.map((ingredient: string) => ingredient.toLowerCase());
+    this.rating = data.rating;
+    this.ingredients = data.ingredients.map((ingredient: IngredientModel) => {
+      ingredient.name = ingredient.name.toLowerCase();
+      return ingredient;
+    });
     if (data.id) {
-      this.id = data.id.toLowerCase();
+      this.id = data.id;
     }
   }
 }

@@ -34,7 +34,7 @@
         <button mat-raised-button color="primary" (click)="increaseCount()">+</button>
       </div>
       <div class="recipe__right-sub-item recipe__add-button">
-        <button *ngIf="!recipe.isInList" mat-raised-button color="primary" (click)="addToBasket()">
+        <button *ngIf="!recipe.isInList" mat-stroked-button color="primary" (click)="addToBasket()">
           <mat-icon>library_add</mat-icon> В СПИСОК
         </button>
         <button *ngIf="recipe.isInList" mat-stroked-button color="warn" (click)="deleteFromBasket()">
