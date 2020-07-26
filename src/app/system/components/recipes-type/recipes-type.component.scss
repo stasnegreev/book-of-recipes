@@ -36,6 +36,7 @@
   background-size: cover;
   background-position: 40% 40%;
   color: #F5EFE8;
+  cursor: pointer;
 
   &:before {
     content: '';
@@ -81,6 +82,7 @@
     text-align: center;
     letter-spacing: 0;
     transition: letter-spacing 280ms ease-in-out;
+    cursor: pointer;
   }
 
   &:hover .type__title,

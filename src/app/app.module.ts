@@ -10,7 +10,7 @@ import { HeaderComponent } from './main-layout/components/header/header.componen
 import { SharedModule } from './shared/shared.module';
 import { AsideMenuComponent } from './main-layout/components/aside-menu/aside-menu.component';
 import { SystemModule } from './system/system.module';
-import { AdminPageModule } from './admin-page/admin-page.module';
+import { AdminModule } from './admin-page/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { SearchInputComponent } from './UI/search-input/search-input.component';
@@ -34,7 +34,7 @@ import { SearchResultViewComponent } from './UI/search-result-view/search-result
     BrowserAnimationsModule,
     SharedModule,
     SystemModule,
-    AdminPageModule,
+    AdminModule,
     FormsModule,
   ],
   providers: [

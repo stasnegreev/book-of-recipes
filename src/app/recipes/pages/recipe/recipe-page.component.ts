@@ -16,10 +16,8 @@ export class RecipePageComponent implements OnInit {
   public backgroundImage = 'none';
   public maxRating = ValidatorValue.MAX_RATING;
   public isImageLoading = true;
-  private recipeID: string;
-  public get ingredients() {
-    return Object.values(this.recipe.ingredients);
-  }
+  public recipeID = '';
+  public isLoading: false;
 
   constructor(
     private recipeService: RecipeService,

@@ -1,4 +1,7 @@
-<div class="container">
+<mat-spinner *ngIf="isLoading"
+             class="spiner">
+</mat-spinner>
+<div class="container" *ngIf="!isLoading">
   <form class="form" [formGroup]="form">
     <div class="form__title mat-h2 mat-title">
       Добавить новый рецепт
@@ -30,20 +33,28 @@
       <input formControlName="name" matInput placeholder="Введите название рецепта">
       <mat-error>Название обязательно</mat-error>
     </mat-form-field>
-
-    <mat-form-field class="form__field" appearance="outline">
+    <div class="form__field" *ngIf="recipeImageUrl">
+      <div>
+        <img class="form__image-preview" src="{{recipeImageUrl}}">
+      </div>
+      <button mat-stroked-button  color="basic" (click)="recipeImageUrl = null">
+        Заменить изображение
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <mat-form-field class="form__field" *ngIf="!recipeImageUrl" appearance="outline">
       <mat-label>Изображение</mat-label>
       <ngx-mat-file-input color="primary" formControlName="image" placeholder="Basic Input" ></ngx-mat-file-input>
       <mat-icon matSuffix>folder</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="outline"  class="form__field">
-      <mat-label class="">Инструкция</mat-label>
+      <mat-label>Инструкция</mat-label>
       <textarea formControlName="instruction" matInput class="example-right-align"></textarea>
     </mat-form-field>
 
     <div class="ing" [formArrayName]="'ingredients'">
-      <div class="ing__container" *ngFor="let ing of ingredients?.controls; let pointIndex=index"
+      <div class="ing__container" *ngFor="let ing of formIngredients?.controls; let pointIndex=index"
            [formGroupName]="pointIndex ">
         <button mat-icon-button color="warn" class="ing__remove" (click)="deleteIngredient(pointIndex)">
           <mat-icon>remove_circle_outline</mat-icon>
@@ -66,15 +77,30 @@
     </div>
 
     <div class="form__field form__field--button">
-      <button mat-stroked-button  color="basic" (click)="addIngredient(); ">
+      <button mat-raised-button  color="basic" (click)="addIngredient(); ">
         Добавить индигриент
         <mat-icon>add_circle_outline</mat-icon>
       </button>
     </div>
 
     <div class="footer">
-      <button type="submit" mat-raised-button color="primary" [disabled]="!form.valid" (click)="onSubmit()">
-        Сохранить рецепт
+      <button class="footer__button"
+              type="submit"
+              mat-raised-button
+              color="primary"
+              [disabled]="!form.valid"
+              (click)="onSubmit()">
+        <span *ngIf="!recipe">Сохранить рецепт</span>
+        <span *ngIf="recipe">Сохранить изменения</span>
+      </button>
+      <button class="footer__button"
+              *ngIf="recipe"
+              type="submit"
+              mat-stroked-button
+              color="warn"
+              [disabled]="!form.valid"
+              (click)="onDeleteRecipe()">
+        <span >Удалить рецепт</span>
       </button>
     </div>
   </form>

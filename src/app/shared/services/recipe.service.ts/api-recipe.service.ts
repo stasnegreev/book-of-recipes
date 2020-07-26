@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { RecipeModel } from '../../models/recipe.model';
 import { FbCollections } from '../../constans/fb-collections';
-import { first, take } from 'rxjs/operators';
+import { first, map, take } from 'rxjs/operators';
 
 export interface Item { name: string; }
 
@@ -52,7 +52,25 @@ export class ApiRecipeService {
 
   public apiGetRecipeByID(recipeID: string) {
     return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).valueChanges().pipe(
+      map((response: RecipeModel) => {
+        if (response.ingredients) {
+          response.ingredients = Object.values(response.ingredients);
+        }
+        if (response) {
+          response.id = recipeID;
+        }
+        return response;
+      }),
       first()
     );
+  }
+
+  public apiUpdateRecipe(data: RecipeModel, recipeID: string) {
+    data.ingredients = { ...data.ingredients };
+    return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).update({...data});
+  }
+
+  public apiDeleteRecipe(recipeID: string) {
+    return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).delete();
   }
 }

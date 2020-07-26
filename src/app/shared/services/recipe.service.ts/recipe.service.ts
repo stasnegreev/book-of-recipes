@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable  } from '@angular/core';
 import { RecipeModel } from '../../models/recipe.model';
 import { FormGroup } from '@angular/forms';
 import { FILE_TYPES } from '../../constans/file-types';
@@ -15,20 +15,36 @@ export class RecipeService {
 
   }
 
-  public addNewRecipe(form: FormGroup) {
+  public addNewRecipe(form: FormGroup): Promise<any> {
     const ingredientsListToAdd: string[] = [];
     form.get('ingredients').value.forEach((ingredient) => {
       ingredientsListToAdd.push(ingredient.name);
     });
     const recipeToAdd = new RecipeModel({ ...form.value, ingredientsList: ingredientsListToAdd });
-    this.apiRecipeService.apiCreateNewRecipe(recipeToAdd).then(
-      (resp) => {
-        if (form.get('image').value) {
-          const file = form.get('image').value._files[0];
-          this.apiRecipeService.uploadFile(resp.id, file, FILE_TYPES.RECIPE_IMAGE);
-        }
-      }
-    );
+    if (!form.get('image').value) {
+      return this.apiRecipeService.apiCreateNewRecipe(recipeToAdd);
+    } else {
+      return this.apiRecipeService.apiCreateNewRecipe(recipeToAdd).then((resp) => {
+        const file = form.get('image').value._files[0];
+        this.apiRecipeService.uploadFile(resp.id, file, FILE_TYPES.RECIPE_IMAGE);
+      });
+    }
+  }
+
+  public updateRecipe(form: FormGroup, recipeID: string): Promise<any> {
+    const ingredientsListToAdd: string[] = [];
+    form.get('ingredients').value.forEach((ingredient) => {
+      ingredientsListToAdd.push(ingredient.name);
+    });
+    const recipeToAdd = new RecipeModel({ ...form.value, ingredientsList: ingredientsListToAdd });
+    if (!form.get('image').value) {
+      return this.apiRecipeService.apiUpdateRecipe(recipeToAdd, recipeID);
+    } else {
+      return this.apiRecipeService.apiUpdateRecipe(recipeToAdd, recipeID).then(() => {
+        const file = form.get('image').value._files[0];
+        this.apiRecipeService.uploadFile(recipeID, file, FILE_TYPES.RECIPE_IMAGE);
+      });
+    }
   }
 
   public getRecipes(filterType: string, filterValue: string): Observable<RecipeModel[]> {
@@ -42,9 +58,13 @@ export class RecipeService {
   public getRecipeByID(recipeID: string): Observable<RecipeModel> {
     return this.apiRecipeService.apiGetRecipeByID(recipeID).pipe(
       map((data) => {
-        return  data as RecipeModel;
+        return new RecipeModel(data);
       })
     );
+  }
+
+  public deleteRecipe(recipeID: string): Promise<any> {
+    return this.apiRecipeService.apiDeleteRecipe(recipeID);
   }
 
   public getRecipesByName(filterType: string, filterValue: string): Observable<RecipeModel[]> {
@@ -56,7 +76,7 @@ export class RecipeService {
     );
   }
 
-  public getRecipeImage(name: string) {
+  public getRecipeImage(name: string): Observable<string> {
     return this.apiRecipeService.getFileUrl(FILE_TYPES.RECIPE_IMAGE, name);
   }
 }

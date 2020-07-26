@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { AdminPageComponent } from './admin-page/admin-page.component';
 
 const routes: Routes = [
   {
@@ -9,12 +8,12 @@ const routes: Routes = [
     redirectTo: 'start-page',
   },
   {
-    path: 'admin',
-    component: AdminPageComponent,
-  },
-  {
     path: 'recipes',
     loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin-page/admin.module').then(m => m.AdminModule)
   }
 ];
 
