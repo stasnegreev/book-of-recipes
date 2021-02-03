@@ -8,6 +8,8 @@ import { RecipeModel } from '../../../shared/models/recipe.model';
 import { IngredientModel } from '../../../shared/models/ingredient.model';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RECIPE_OWNERS } from '../../../shared/constans/recipe-owners-options';
+import { RecipeOwnersNames } from '../../../shared/constans/recipe-owners-names';
 
 @Component({
   selector: 'app-recipe-form',
@@ -20,6 +22,7 @@ export class RecipeFormComponent implements OnInit {
   @Input() public recipeImageUrl: string;
 
   public recipeTypes = RECIPE_TYPES;
+  public recipeOwners = RECIPE_OWNERS;
   public ratings = RATING;
   public form: FormGroup;
   public isLoading = false;
@@ -44,6 +47,7 @@ export class RecipeFormComponent implements OnInit {
       name: ['', [Validators.required, Validators.maxLength(ValidatorValue.MAX_LENGTH_INPUT)]],
       rating: [ValidatorValue.MAX_RATING, [Validators.required, Validators.min(0), Validators.max(ValidatorValue.MAX_RATING)]],
       type: ['', [Validators.required]],
+      owner: [RecipeOwnersNames.MIRONOVA, [Validators.required]],
       image: [''],
       ingredients: new FormArray([]),
     });
@@ -55,6 +59,7 @@ export class RecipeFormComponent implements OnInit {
       name: this.recipe.name,
       rating: this.recipe.rating,
       type: this.recipe.type,
+      owner: this.recipe.owner ? this.recipe.owner : RecipeOwnersNames.TURBO,
     });
 
     this.recipe.ingredients.forEach((ingredient: IngredientModel) => {

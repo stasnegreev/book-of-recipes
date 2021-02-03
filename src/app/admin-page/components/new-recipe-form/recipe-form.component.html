@@ -9,6 +9,15 @@
 
     <div class="form__field form__field--margin">
       <label class="mat-h3">Тип рецепта</label>
+      <mat-radio-group formControlName="owner" class="form__radio-group">
+        <mat-radio-button color="primary" class="form__radio-option" *ngFor="let owner of recipeOwners" [value]="owner.value">
+          {{owner.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="form__field form__field--margin">
+      <label class="mat-h3">Тип рецепта</label>
       <mat-radio-group formControlName="type" class="form__radio-group">
         <mat-radio-button color="primary" class="form__radio-option" *ngFor="let recipe of recipeTypes" [value]="recipe.value">
           {{recipe.name}}

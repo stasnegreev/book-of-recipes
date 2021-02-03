@@ -2,6 +2,7 @@ import { IngredientModel } from './ingredient.model';
 
 export class RecipeModel {
   type: string;
+  owner: string;
   name: string;
   instruction: string;
   ingredients: IngredientModel[];
@@ -13,6 +14,7 @@ export class RecipeModel {
 
   constructor(data) {
     this.type = data.type;
+    this.owner = data.owner;
     this.name = data.name.toLowerCase();
     this.instruction = data.instruction;
     this.ingredientsList = data.ingredientsList.map((ingredient: string) => ingredient.toLowerCase());
