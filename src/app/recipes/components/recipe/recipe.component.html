@@ -41,6 +41,11 @@
           <mat-icon>delete</mat-icon> Удалить
         </button>
       </div>
+      <div>
+        <button mat-stroked-button [routerLink]="['/admin/edit-recipe', recipe.id]">
+          РЕДАКТИРОВАТЬ
+        </button>
+      </div>
     </div>
 <!--    TODO for recipe lists flow-->
 <!--    <div class="recipe__right-item recipe__lists">-->
