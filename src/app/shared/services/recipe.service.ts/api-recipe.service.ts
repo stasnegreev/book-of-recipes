@@ -41,10 +41,9 @@ export class ApiRecipeService {
   }
 
   public apiGetRecipesByName(filterType: string, filterValue: string) {
-    const nextSymbol = String.fromCharCode(filterValue.charCodeAt(0) + 1);
+    const charts = filterValue.slice(0, 3);
     return this.firestore.collection(
-      FbCollections.RECIPES, ref => ref.where('name', '>=', filterValue)
-        .where('name', '<', nextSymbol)
+      FbCollections.RECIPES, ref => ref.where('nameForSearch', 'array-contains', charts)
     ).valueChanges({ idField: 'id' }).pipe(
       first()
     );

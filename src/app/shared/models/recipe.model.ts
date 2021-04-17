@@ -11,6 +11,7 @@ export class RecipeModel {
   isInList?: boolean;
   count?: number;
   id?: string;
+  nameForSearch?: string[];
 
   constructor(data) {
     this.type = data.type;
@@ -23,6 +24,13 @@ export class RecipeModel {
       ingredient.name = ingredient.name.toLowerCase();
       return ingredient;
     });
+    const nameForSearch = new Set<string>();
+    data.name.split(' ').forEach((word) => {
+      nameForSearch.add(word.slice(0, 1));
+      nameForSearch.add(word.slice(0, 2));
+      nameForSearch.add(word.slice(0, 3));
+    });
+    this.nameForSearch = Array.from(nameForSearch);
     if (data.id) {
       this.id = data.id;
     }

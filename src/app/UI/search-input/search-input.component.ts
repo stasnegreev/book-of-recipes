@@ -13,6 +13,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 })
 export class SearchInputComponent implements ControlValueAccessor {
 
+  // tslint:disable-next-line:variable-name
   public _value: string;
 
   get value() {
@@ -29,7 +30,6 @@ export class SearchInputComponent implements ControlValueAccessor {
 
   @HostListener('document:click', ['$event'])
   onClick(event: Event) {
-    console.log(event);
     if (!this.el.nativeElement.contains(event.target)) {
       this.onActiveOff();
     }

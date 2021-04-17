@@ -1,5 +1,5 @@
 export enum FbCollections {
   INGREDIENTS = 'ingredients',
-  RECIPES = 'recipes',
+  RECIPES = 'recipes1.1',
   USERS = 'users',
 }
