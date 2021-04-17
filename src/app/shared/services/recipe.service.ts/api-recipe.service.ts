@@ -72,4 +72,15 @@ export class ApiRecipeService {
   public apiDeleteRecipe(recipeID: string) {
     return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).delete();
   }
+
+  public apiGetAllRecipes() {
+    return this.firestore.collection(
+      FbCollections.RECIPES, ref => ref
+    ).valueChanges({ idField: 'id' });
+  }
+
+  public apiCreateNewRecipeWithId(data: RecipeModel, id: string) {
+    data.ingredients = { ...data.ingredients };
+    return this.firestore.collection(FbCollections.RECIPES).doc(id).set({...data});
+  }
 }
