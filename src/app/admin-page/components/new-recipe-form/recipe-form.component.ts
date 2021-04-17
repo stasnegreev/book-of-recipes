@@ -83,10 +83,11 @@ export class RecipeFormComponent implements OnInit {
         );
       } else {
         this.recipeService.addNewRecipe(this.form).then(
-            () => {
-              this.snackBar.open('Рецепт сохранен', 'Закрыть');
-              this.isLoading = false;
-            }
+          () => {
+            this.createForm();
+            this.isLoading = false;
+            this.snackBar.open('Рецепт сохранен', 'Закрыть');
+          }
         );
       }
     }
