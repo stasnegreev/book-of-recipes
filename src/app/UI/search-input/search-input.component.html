@@ -1,0 +1,14 @@
+<div class="search-field" [ngClass]="{'active': isActive}" >
+  <button mat-mini-fab color="warn" class="search-field__btn">
+    <mat-icon class="search-field__icon search-field__lupe" color="primary" (click)="onActiveOn(); input.focus()">search</mat-icon>
+    <input #input
+           class="search-field__input"
+           name="query"
+           [(ngModel)]="_value"
+           autocomplete="off"
+           (input)="onChangeInput()">
+    <mat-icon class="search-field__icon search-field__close" color="primary" (click)="onActiveOff()">close</mat-icon>
+  </button>
+  <app-search-result-view [queryValue]="_value" (activeOff)="onActiveOff()" class="search-result"></app-search-result-view>
+</div>
+

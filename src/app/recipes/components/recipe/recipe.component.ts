@@ -4,7 +4,7 @@ import { RecipeService } from '../../../shared/services/recipe.service.ts/recipe
 import { take } from 'rxjs/operators';
 import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
 import { ValidatorValue } from '../../../shared/constans/validator-value';
-import { BasketService } from '../../services/basket-service/basket.service';
+import { BasketService } from '../../../shared/services/basket-service/basket.service';
 
 @Component({
   selector: 'app-recipe',
@@ -15,8 +15,9 @@ export class RecipeComponent  implements OnInit {
 
   @Input() public recipe: RecipeModel;
 
-  public backgroundImage = { 'background-image': 'none' };
+  public backgroundImage = 'none';
   public maxRating = ValidatorValue.MAX_RATING;
+  public isImageLoading = true;
 
   constructor(
     private recipeService: RecipeService,
@@ -30,33 +31,31 @@ export class RecipeComponent  implements OnInit {
 
   public subscribeRecipeImageUrl() {
     let recipeImageUrl = '';
-    switch (this.recipe.type) {
-      case RecipeTypesNames.BREAKFAST:
-        recipeImageUrl = `url(\"/assets/image/breakfast-stub.jpg\")`;
-        break;
-      case RecipeTypesNames.LUNCH:
-        recipeImageUrl = `url(\"/assets/image/lunch-stub.jpg\")`;
-        break;
-      case RecipeTypesNames.DINNER:
-        recipeImageUrl = `url(\"/assets/image/dinner-stub.jpg\")`;
-        break;
-      case RecipeTypesNames.SNACKS:
-        recipeImageUrl = `url(\"/assets/image/snacks-stub.jpg\")`;
-        break;
-    }
-    this.backgroundImage = { 'background-image': recipeImageUrl};
     this.recipeService.getRecipeImage(this.recipe.id).pipe(take(1))
-      .subscribe((resp) => {
+      .subscribe(
+        (resp) => {
         recipeImageUrl = `url(\"${resp}\")`;
-        this.backgroundImage = { 'background-image': recipeImageUrl};
-      });
-  }
-
-  public get positiveStarsCount() {
-    return new Array(Math.ceil(this.recipe.rating));
-  }
-  public get negativeStarsCount() {
-    return new Array(Math.floor(ValidatorValue.MAX_RATING - this.recipe.rating));
+        this.backgroundImage = recipeImageUrl;
+        this.isImageLoading = false;
+      },
+        () => {
+          switch (this.recipe.type) {
+            case RecipeTypesNames.BREAKFAST:
+              recipeImageUrl = `url(\"/assets/image/breakfast-stub.jpg\")`;
+              break;
+            case RecipeTypesNames.LUNCH:
+              recipeImageUrl = `url(\"/assets/image/lunch-stub.jpg\")`;
+              break;
+            case RecipeTypesNames.DINNER:
+              recipeImageUrl = `url(\"/assets/image/dinner-stub.jpg\")`;
+              break;
+            case RecipeTypesNames.SNACKS:
+              recipeImageUrl = `url(\"/assets/image/snacks-stub.jpg\")`;
+              break;
+          }
+          this.backgroundImage = recipeImageUrl;
+          this.isImageLoading = false;
+        });
   }
 
   public decreaseCount() {
@@ -69,5 +68,9 @@ export class RecipeComponent  implements OnInit {
 
   public addToBasket() {
     this.basketService.addRecipe(this.recipe);
+  }
+
+  public deleteFromBasket() {
+    this.basketService.deleteRecipe(this.recipe);
   }
 }

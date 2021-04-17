@@ -22,5 +22,15 @@
   .main {
     min-height: calc(100vh - 50px);
     background-color: #F5EFE8;
+    background-image: url("/assets/image/background-lb.svg"), url("/assets/image/background-rb.svg") ;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right bottom;
+    background-size: 30vw, 30vw;
+    background-attachment: fixed;
+
+    @media screen and (max-width: 576px) {
+      background-repeat: no-repeat, no-repeat;
+      background-size: 0, 90vw;
+    }
   }
 }

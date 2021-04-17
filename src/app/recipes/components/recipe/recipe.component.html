@@ -1,13 +1,15 @@
-<div class="recipe">
-  <div class="recipe__left-side">
-    <div class="recipe__image"  [ngStyle]="backgroundImage">
+<div class="recipe" [class.inList]="recipe.isInList">
+  <div class="recipe__left-side" [routerLink]="['/recipes/recipe', recipe.id]">
+    <div class="recipe__image"  [ngStyle]="{'background-image': backgroundImage}">
+      <mat-spinner *ngIf="isImageLoading"> </mat-spinner>
     </div>
   </div>
   <div class="recipe__right-side">
     <div class="recipe__right-item recipe__type mat-small mat-caption">
-      - {{recipe.type}} -
+      - {{recipe.owner}} -
     </div>
-    <div class="recipe__right-item recipe__name mat-h1 mat-headline">
+    <div class="recipe__right-item recipe__name mat-h1 mat-headline"
+         [routerLink]="['/recipes/recipe', recipe.id]">
       {{recipe.name}}
     </div>
     <div class="recipe__right-item recipe__ingredients mat-body mat-body-1">
@@ -27,27 +29,37 @@
            class="recipe__right-sub-item recipe__ratings">
       </div>
       <div class="recipe__right-sub-item recipe__count">
-        <button mat-flat-button color="primary" (click)="decreaseCount()">-</button>
-        <button mat-flat-button color="basic" disabled class="button-disabled">{{recipe.count}}</button>
-        <button mat-flat-button color="primary" (click)="increaseCount()">+</button>
+        <button mat-raised-button color="primary" (click)="decreaseCount()">-</button>
+        <button mat-raised-button color="basic" disabled class="button-disabled recipe__count-value">{{recipe.count}}</button>
+        <button mat-raised-button color="primary" (click)="increaseCount()">+</button>
       </div>
       <div class="recipe__right-sub-item recipe__add-button">
-        <button mat-flat-button color="primary" (click)="addToBasket()">
-          <mat-icon>add_shopping_cart</mat-icon>Добавить в корзину </button>
+        <button *ngIf="!recipe.isInList" mat-stroked-button color="primary" (click)="addToBasket()">
+          <mat-icon>library_add</mat-icon> В СПИСОК
+        </button>
+        <button *ngIf="recipe.isInList" mat-stroked-button color="warn" (click)="deleteFromBasket()">
+          <mat-icon>delete</mat-icon> Удалить
+        </button>
+      </div>
+      <div>
+        <button mat-stroked-button [routerLink]="['/admin/edit-recipe', recipe.id]">
+          РЕДАКТИРОВАТЬ
+        </button>
       </div>
     </div>
-    <div class="recipe__right-item recipe__lists">
-      <mat-form-field appearance="outline" floatLabel="never">
-        <mat-label>ДОБАВИТЬ В ПОДБОРКУ</mat-label>
-        <mat-select>
-          <mat-select-trigger>
-              <span  class="example-additional-selection">
-                   others'
-                  </span>
-          </mat-select-trigger>
-          <mat-option ></mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+<!--    TODO for recipe lists flow-->
+<!--    <div class="recipe__right-item recipe__lists">-->
+<!--      <mat-form-field appearance="outline" floatLabel="never">-->
+<!--        <mat-label>ДОБАВИТЬ В ПОДБОРКУ</mat-label>-->
+<!--        <mat-select>-->
+<!--          <mat-select-trigger>-->
+<!--              <span  class="example-additional-selection">-->
+<!--                   others'-->
+<!--                  </span>-->
+<!--          </mat-select-trigger>-->
+<!--          <mat-option ></mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
   </div>
 </div>

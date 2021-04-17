@@ -1,10 +1,22 @@
 <div class="header">
   <div class="header__nav-button nav-button">
-    <button mat-mini-fab color="warn" (click)="onToggleMenu()" class="nav-button__btn">
-      <mat-icon [class.active]="isOpenMenuButtonActive" class="nav-button__icon">menu_open</mat-icon>
+    <button mat-mini-fab class="nav-button__btn" routerLink="/start-page">
+      <mat-icon>home</mat-icon>
     </button>
+<!--    TODO for use aside menu-->
+<!--    <button mat-mini-fab color="warn" (click)="onToggleMenu()" class="nav-button__btn">-->
+<!--      <mat-icon [class.active]="isOpenMenuButtonActive" class="nav-button__icon">menu_open</mat-icon>-->
+<!--    </button>-->
   </div>
   <div class="logo">
     <img class="logo__img" src="/assets/image/turbo-logo-medium.svg" alt="logo">
+  </div>
+  <div class="header__search-field">
+    <app-search-input [(ngModel)]="queryValue"></app-search-input>
+  </div>
+  <div class="header__basket-button basket-button">
+    <button mat-mini-fab color="warn" [routerLink]="'/basket'" class="basket-button__btn">
+      <mat-icon class="basket-button__icon">library_books</mat-icon>
+    </button>
   </div>
 </div>

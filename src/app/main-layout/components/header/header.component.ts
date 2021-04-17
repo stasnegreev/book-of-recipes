@@ -8,12 +8,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class HeaderComponent {
 
   @Input()
-  isOpenMenuButtonActive = false;
+  public isOpenMenuButtonActive = false;
 
   @Output()
   public clickMenuButton = new EventEmitter<void>();
 
-  onToggleMenu() {
+  @Output()
+  public clickBasketButton = new EventEmitter<void>();
+
+  public queryValue: string;
+
+  public onToggleMenu() {
     this.clickMenuButton.emit();
+  }
+
+  public onToggleBasket() {
+    this.clickBasketButton.emit();
   }
 }

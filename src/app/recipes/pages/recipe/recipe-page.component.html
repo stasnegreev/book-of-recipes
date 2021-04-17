@@ -1,0 +1,45 @@
+<mat-spinner *ngIf="!recipe"
+             class="spiner">
+</mat-spinner>
+<div class="recipe-page" *ngIf="recipe">
+  <div class="recipe-page__type mat-small mat-caption">
+    - {{recipe.type}} -
+  </div>
+
+  <div class="recipe-page__name mat-h1 mat-display-1">
+    {{recipe.name}}
+  </div>
+
+  <div class="recipe-page__image"
+       [ngStyle]="{'background-image': backgroundImage}">
+    <mat-spinner *ngIf="isImageLoading"
+                 class="recipe-page__spiner">
+    </mat-spinner>
+  </div>
+
+  <div [appRatingStars]="recipe.rating" [maxRating]="maxRating"
+       class="recipe-page__ratings">
+  </div>
+
+  <div class="recipe-page__edit">
+    <button mat-stroked-button color="primary" [routerLink]="['/admin/edit-recipe', recipeID]">
+      <mat-icon>library_add</mat-icon>Радактировать
+    </button>
+  </div>
+
+  <div class="recipe-page__ingredients mat-title">
+    ИНГРЕДИЕНТЫ
+    <ul>
+      <li *ngFor="let ingredient of recipe.ingredients" class="mat-body-strong mat-body-2">
+        {{ingredient.name}} - {{ingredient.amount}}, {{ingredient.unit}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="recipe-page__instruction mat-title">
+    ИНСТРУКЦИЯ ПРИГОТОВЛЕНИЯ
+    <p class="mat-body-strong mat-body-2">
+      {{ recipe.instruction }}
+    </p>
+  </div>
+</div>

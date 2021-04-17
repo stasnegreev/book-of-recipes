@@ -10,9 +10,9 @@ import { RecipesComponent } from '../recipes/pages/recipes/recipes.component';
 import { RouterModule } from '@angular/router';
 import { SystemRoutingModule } from './system-routing.module';
 import { RecipeComponent } from '../recipes/components/recipe/recipe.component';
-import { BasketModalComponent } from '../recipes/components/basket-modal/basket-modal.component';
-import { BasketService } from '../recipes/services/basket-service/basket.service';
-import { ShoppingListComponent } from '../recipes/components/shoping-list/shopping-list.component';
+import { ShoppingListComponent } from '../main-layout/components/shoping-list/shopping-list.component';
+import { BasketPageComponent } from './pages/basket-page/basket-page.component';
+import { BasketModalComponent } from './components/basket-modal/basket-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,20 +23,18 @@ import { ShoppingListComponent } from '../recipes/components/shoping-list/shoppi
     UsersPopularsListsComponent,
     RecipesComponent,
     RecipeComponent,
-    BasketModalComponent,
     ShoppingListComponent,
+    BasketPageComponent,
+    BasketModalComponent,
   ],
   exports: [
     StartPageComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule,
-    SystemRoutingModule
-  ],
-  providers: [
-    BasketService
-  ]
+    imports: [
+        CommonModule,
+        SharedModule,
+        RouterModule,
+        SystemRoutingModule,
+    ],
 })
 export class SystemModule { }

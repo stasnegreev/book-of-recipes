@@ -1,0 +1,27 @@
+.search-view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #3c4225;
+  color: #F5EFE8;
+  transition: height ease-out 0.5s;
+
+  .search-view__results {
+    width: 100%;
+    text-transform: uppercase;
+  }
+  .search-view__item-button {
+    width: 100%;
+
+    .mat-button-wrapper {
+      max-width: 760px;
+    }
+  }
+}
+
+.search-view.active {
+  max-height: 90vh;
+  padding: 32px 0;
+}

@@ -1,0 +1,16 @@
+.shoppingList__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .shoppingList__button {
+    margin-right: 15px;
+  }
+}
+
+.shoppingList__list {
+  list-style: decimal inside;
+
+  .shoppingList__list {
+    margin: 12px 0;
+  }
+}
