@@ -1,0 +1,22 @@
+<ul class="rating">
+  <li (click)="setValue(1)" class="rating__item">
+    <mat-icon color="primary" *ngIf="rating >= 1">star</mat-icon>
+    <mat-icon color="primary" *ngIf="rating < 1">star_outline</mat-icon>
+  </li>
+  <li (click)="setValue(2)" class="rating__item">
+    <mat-icon color="primary" *ngIf="rating >= 2">star</mat-icon>
+    <mat-icon color="primary" *ngIf="rating < 2">star_outline</mat-icon>
+  </li>
+  <li (click)="setValue(3)" class="rating__item">
+    <mat-icon color="primary" *ngIf="rating >= 3">star</mat-icon>
+    <mat-icon color="primary" *ngIf="rating < 3">star_outline</mat-icon>
+  </li>
+  <li (click)="setValue(4)" class="rating__item">
+    <mat-icon color="primary" *ngIf="rating >= 4">star</mat-icon>
+    <mat-icon color="primary" *ngIf="rating < 4">star_outline</mat-icon>
+  </li>
+  <li (click)="setValue(5)" class="rating__item">
+    <mat-icon color="primary" *ngIf="rating >= 5">star</mat-icon>
+    <mat-icon color="primary" *ngIf="rating < 5">star_outline</mat-icon>
+  </li>
+</ul>

@@ -69,6 +69,10 @@ export class ApiRecipeService {
     return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).update({...data});
   }
 
+  public apiUpdateRecipeField(recipeID: string, field: { [key: string]: string | boolean | number | any[]}) {
+    return this.firestore.collection(FbCollections.RECIPES).doc(recipeID).update(field);
+  }
+
   public apiDeleteRecipe(recipeID: string) {
     return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).delete();
   }

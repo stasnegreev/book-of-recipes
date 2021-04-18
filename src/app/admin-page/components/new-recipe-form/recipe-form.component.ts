@@ -75,7 +75,7 @@ export class RecipeFormComponent implements OnInit {
     if (this.form.valid) {
       this.isLoading = true;
       if (this.recipe) {
-        this.recipeService.updateRecipe(this.form, this.recipe.id).then(
+        this.recipeService.updateRecipe(this.form.value, this.recipe.id).then(
             () => {
               this.snackBar.open('Рецепт сохранен', 'Закрыть');
               this.isLoading = false;

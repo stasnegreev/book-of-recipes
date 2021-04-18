@@ -31,20 +31,24 @@ export class RecipeService {
     }
   }
 
-  public updateRecipe(form: FormGroup, recipeID: string): Promise<any> {
+  public updateRecipe(recipeData, recipeID: string): Promise<any> {
     const ingredientsListToAdd: string[] = [];
-    form.get('ingredients').value.forEach((ingredient) => {
+    recipeData.ingredients.forEach((ingredient) => {
       ingredientsListToAdd.push(ingredient.name);
     });
-    const recipeToAdd = new RecipeModel({ ...form.value, ingredientsList: ingredientsListToAdd });
-    if (!form.get('image').value) {
+    const recipeToAdd = new RecipeModel({ ...recipeData, ingredientsList: ingredientsListToAdd });
+    if (!recipeData.image) {
       return this.apiRecipeService.apiUpdateRecipe(recipeToAdd, recipeID);
     } else {
       return this.apiRecipeService.apiUpdateRecipe(recipeToAdd, recipeID).then(() => {
-        const file = form.get('image').value._files[0];
+        const file = recipeData.image._files[0];
         this.apiRecipeService.uploadFile(recipeID, file, FILE_TYPES.RECIPE_IMAGE);
       });
     }
+  }
+
+  public updateRecipeField(recipeId: string, field: { [key: string]: string | boolean | number | any[] }) {
+    return this.apiRecipeService.apiUpdateRecipeField(recipeId, field);
   }
 
   public getRecipes(filterType: string, filterValue: string): Observable<RecipeModel[]> {
