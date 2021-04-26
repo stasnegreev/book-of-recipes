@@ -5,6 +5,8 @@ import { take } from 'rxjs/operators';
 import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
 import { ValidatorValue } from '../../../shared/constans/validator-value';
 import { BasketService } from '../../../shared/services/basket-service/basket.service';
+import {GeneralGroupsNames} from '../../../shared/constans/general-groups-names';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recipe',
@@ -22,6 +24,7 @@ export class RecipeComponent  implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private basketService: BasketService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -56,6 +59,19 @@ export class RecipeComponent  implements OnInit {
           this.backgroundImage = recipeImageUrl;
           this.isImageLoading = false;
         });
+  }
+
+  public onClickFavorite() {
+    const groups = new Set(this.recipe.groups);
+    if (groups.has(GeneralGroupsNames.Favorites)) {
+      groups.delete(GeneralGroupsNames.Favorites);
+    } else {
+      groups.add(GeneralGroupsNames.Favorites);
+    }
+    this.recipeService.updateRecipeField(this.recipe.id, { groups: Array.from(groups) }).then(
+      () => this.recipe.groups = Array.from(groups),
+      () => this.snackBar.open('Не удалось сохронить', 'Закрыть'),
+    );
   }
 
   public decreaseCount() {

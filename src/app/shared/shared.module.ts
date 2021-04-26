@@ -14,10 +14,14 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { RatingStarsDirective } from './directives/rating-stars.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
+import { RatingFieldComponent } from '../UI/rating-field/rating-field.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
-    RatingStarsDirective
+    RatingStarsDirective,
+    RatingFieldComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +37,8 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
     MatExpansionModule,
     MaterialFileInputModule,
     MatProgressSpinnerModule,
+    MatMenuModule,
+    MatChipsModule,
   ],
   exports: [
     MatSidenavModule,
@@ -46,12 +52,16 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
     MatDialogModule,
     MatExpansionModule,
     MaterialFileInputModule,
+    MatChipsModule,
+    MatChipsModule,
     RatingStarsDirective,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatMenuModule,
+    RatingFieldComponent,
   ],
   providers: [
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}}
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } }
   ]
 })
 export class SharedModule {

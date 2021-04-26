@@ -8,6 +8,7 @@ import { EditRecipePageComponent } from './pages/edit-recipe-page/edit-recipe-pa
 import { CreateRecipePageComponent } from './pages/create-recipe-page/create-recipe-page.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RecipeResolver } from './resolvers/recipe.resolver';
+import { MigrationDbComponent } from './pages/migration-db/migration-db.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RecipeResolver } from './resolvers/recipe.resolver';
     AdminComponent,
     RecipeFormComponent,
     EditRecipePageComponent,
-    CreateRecipePageComponent
+    CreateRecipePageComponent,
+    MigrationDbComponent
   ],
   imports: [
     CommonModule,

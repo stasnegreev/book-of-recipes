@@ -17,14 +17,22 @@
     </mat-spinner>
   </div>
 
-  <div [appRatingStars]="recipe.rating" [maxRating]="maxRating"
-       class="recipe-page__ratings">
+  <div class="recipe-page__edit">
+    <button mat-mini-fab color="basic" (click)="onClickFavorite()">
+      <mat-icon color="primary" *ngIf="!recipe.groups.includes(generalGroupsNames.Favorites)">favorite_border</mat-icon>
+      <mat-icon color="primary" *ngIf="recipe.groups.includes(generalGroupsNames.Favorites)">favorite</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="primary" [routerLink]="['/admin/edit-recipe', recipeID]">
+      <mat-icon>edit_note</mat-icon>
+    </button>
   </div>
 
-  <div class="recipe-page__edit">
-    <button mat-stroked-button color="primary" [routerLink]="['/admin/edit-recipe', recipeID]">
-      <mat-icon>library_add</mat-icon>Радактировать
-    </button>
+  <div class="recipe-page__rating" [formGroup]="form">
+    <app-rating-field
+      formControlName="rating"
+    >
+    </app-rating-field>
   </div>
 
   <div class="recipe-page__ingredients mat-title">

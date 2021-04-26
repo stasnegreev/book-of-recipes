@@ -37,7 +37,7 @@ export class ApiRecipeService {
   public apiGetRecipes(filterType: string, filterValue: string) {
     return this.firestore.collection(
       FbCollections.RECIPES, ref => ref.where(filterType, '==', filterValue)
-    ).valueChanges({ idField: 'id' });
+    ).valueChanges({ idField: 'id' }).pipe(first());
   }
 
   public apiGetRecipesByName(filterType: string, filterValue: string) {
@@ -69,7 +69,22 @@ export class ApiRecipeService {
     return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).update({...data});
   }
 
+  public apiUpdateRecipeField(recipeID: string, field: { [key: string]: string | boolean | number | any[]}) {
+    return this.firestore.collection(FbCollections.RECIPES).doc(recipeID).update(field);
+  }
+
   public apiDeleteRecipe(recipeID: string) {
     return this.firestore.doc<Item>(FbCollections.RECIPES + '/' +  recipeID).delete();
+  }
+
+  public apiGetAllRecipes() {
+    return this.firestore.collection(
+      FbCollections.RECIPES, ref => ref
+    ).valueChanges({ idField: 'id' });
+  }
+
+  public apiCreateNewRecipeWithId(data: RecipeModel, id: string) {
+    data.ingredients = { ...data.ingredients };
+    return this.firestore.collection(FbCollections.RECIPES).doc(id).set({...data});
   }
 }

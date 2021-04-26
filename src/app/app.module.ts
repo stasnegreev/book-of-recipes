@@ -23,7 +23,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HeaderComponent,
     AsideMenuComponent,
     SearchInputComponent,
-    SearchResultViewComponent
+    SearchResultViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +42,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   providers: [
     { provide: BUCKET, useValue: 'gs://book-of-recipes-53f5a.appspot.com' }
   ],
-  exports: [],
   bootstrap: [MainLayoutComponent]
 })
 export class AppModule { }

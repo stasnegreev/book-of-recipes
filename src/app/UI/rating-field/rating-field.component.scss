@@ -1,0 +1,12 @@
+.rating {
+  display: flex;
+
+  .rating__item {
+    cursor: pointer;
+    transition: transform 0.1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
