@@ -15,6 +15,8 @@ import { RatingStarsDirective } from './directives/rating-stars.directive';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RatingFieldComponent } from '../UI/rating-field/rating-field.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { RatingFieldComponent } from '../UI/rating-field/rating-field.component'
     MatExpansionModule,
     MaterialFileInputModule,
     MatProgressSpinnerModule,
+    MatMenuModule,
+    MatChipsModule,
   ],
   exports: [
     MatSidenavModule,
@@ -48,9 +52,12 @@ import { RatingFieldComponent } from '../UI/rating-field/rating-field.component'
     MatDialogModule,
     MatExpansionModule,
     MaterialFileInputModule,
+    MatChipsModule,
+    MatChipsModule,
     RatingStarsDirective,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatMenuModule,
     RatingFieldComponent,
   ],
   providers: [

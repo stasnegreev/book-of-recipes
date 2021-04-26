@@ -37,7 +37,7 @@ export class ApiRecipeService {
   public apiGetRecipes(filterType: string, filterValue: string) {
     return this.firestore.collection(
       FbCollections.RECIPES, ref => ref.where(filterType, '==', filterValue)
-    ).valueChanges({ idField: 'id' });
+    ).valueChanges({ idField: 'id' }).pipe(first());
   }
 
   public apiGetRecipesByName(filterType: string, filterValue: string) {

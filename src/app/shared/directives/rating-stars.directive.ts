@@ -24,6 +24,7 @@ export class RatingStarsDirective implements OnInit {
       }
       matIcon.setAttribute('_ngcontent-c14', '');
       matIcon.classList.add('mat-icon');
+      matIcon.classList.add('rating-item');
       matIcon.classList.add('material-icons');
       matIcon.setAttribute('role', 'img');
       matIcon.setAttribute('aria-hidden', 'true');
