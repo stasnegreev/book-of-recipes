@@ -59,6 +59,14 @@ export class RecipeService {
     );
   }
 
+  public getRecipesByGroups(filterValue: string): Observable<RecipeModel[]> {
+    return this.apiRecipeService.apiGetRecipesByGroups(filterValue).pipe(
+      map((data) => {
+        return  data as RecipeModel[];
+      })
+    );
+  }
+
   public getRecipeByID(recipeID: string): Observable<RecipeModel> {
     return this.apiRecipeService.apiGetRecipeByID(recipeID).pipe(
       map((data) => {

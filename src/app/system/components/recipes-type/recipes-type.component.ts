@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
+import { GeneralGroupsNames } from '../../../shared/constans/general-groups-names';
 
 @Component({
   selector: 'app-recipes-type',
@@ -8,4 +9,5 @@ import { RecipeTypesNames } from '../../../shared/constans/recipe-types-names';
 })
 export class RecipesTypeComponent {
   public recipeTypes = RecipeTypesNames;
+  public generalGroupsNames = GeneralGroupsNames;
 }

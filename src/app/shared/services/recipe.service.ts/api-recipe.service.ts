@@ -40,6 +40,12 @@ export class ApiRecipeService {
     ).valueChanges({ idField: 'id' }).pipe(first());
   }
 
+  public apiGetRecipesByGroups(filterValue: string) {
+    return this.firestore.collection(
+      FbCollections.RECIPES, ref => ref.where('groups', 'array-contains', filterValue)
+    ).valueChanges({ idField: 'id' }).pipe(first());
+  }
+
   public apiGetRecipesByName(filterType: string, filterValue: string) {
     const charts = filterValue.slice(0, 3);
     return this.firestore.collection(
