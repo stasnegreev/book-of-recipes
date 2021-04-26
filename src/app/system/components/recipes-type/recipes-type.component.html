@@ -11,6 +11,10 @@
     <span class="type__title mat-display-2">ОБЕДЫ</span>
   </div>
 
+  <div class="types__item type favorite" [routerLink]="['/recipes', generalGroupsNames.Favorites]">
+    <span class="type__title mat-display-2"><mat-icon>favorite</mat-icon></span>
+  </div>
+
   <div class="types__item type dinner" [routerLink]="['/recipes', recipeTypes.DINNER]">
     <span class="type__title mat-display-2">УЖИНЫ</span>
   </div>

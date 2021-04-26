@@ -8,21 +8,28 @@
   grid-template-columns: 30% 35% 35%;
   grid-template-rows: auto;
   grid-template-areas:
+    "breakfast lunch favorite"
     "breakfast lunch dinner"
-    "snacks  lunch dinner";
+    "snacks lunch dinner"
+    "snacks lunch dinner";
 
   @media screen and (max-width: 992px) {
-    grid-template-columns: 100%;
+    grid-template-columns: 50%;
     grid-template-rows: auto;
     grid-template-areas:
-      "breakfast"
-      "lunch"
-      "dinner"
-      "snacks";
+      "breakfast breakfast"
+      "lunch lunch"
+      "dinner dinner"
+      "snacks favorite";
+
+    .type__title {
+      font-size: 28px;
+    }
   }
 
   &__item {
     width: 100%;
+    padding: 10px;
   }
 }
 
@@ -35,6 +42,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40% 40%;
+  border-radius: 20px;
+  border: 10px solid;
   color: #F5EFE8;
   cursor: pointer;
 
@@ -45,7 +54,9 @@
     width: 100%;
     height: 100%;
     background-color: #000000;
-    opacity: 0.7;
+    border-radius: 20px;
+    border: 10px solid;
+    opacity: 0.3;
     transition: opacity ease-in-out 0.2s;
   }
 
@@ -73,6 +84,11 @@
   &.dinner {
     background-image: url("/assets/image/dinner.jpg");
     grid-area: dinner;
+  }
+
+  &.favorite {
+    background-image: url("/assets/image/favorites.jpg");
+    grid-area: favorite;
   }
 
   .type__title {
