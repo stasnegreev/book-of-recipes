@@ -17,12 +17,14 @@ export class HeaderComponent {
   public clickBasketButton = new EventEmitter<void>();
 
   public queryValue: string;
+  public isBasketOpened = false;
 
   public onToggleMenu() {
     this.clickMenuButton.emit();
   }
 
   public onToggleBasket() {
-    this.clickBasketButton.emit();
+    this.isBasketOpened = !this.isBasketOpened;
+    // this.clickBasketButton.emit();
   }
 }
