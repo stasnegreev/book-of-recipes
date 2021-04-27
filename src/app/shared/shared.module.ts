@@ -17,6 +17,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
 import { RatingFieldComponent } from '../UI/rating-field/rating-field.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatProgressSpinnerModule,
     MatMenuModule,
     MatChipsModule,
+    MatTabsModule,
   ],
   exports: [
     MatSidenavModule,
@@ -59,6 +61,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSnackBarModule,
     MatMenuModule,
     RatingFieldComponent,
+    MatTabsModule
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } }

@@ -1,7 +1,12 @@
-.container {
+.body {
+  height: calc(100vh - 50px);
+}
+
+.content {
   display: flex;
   justify-content: center;
   padding-top: 32px;
+  height: calc(100vh - 50px);
 }
 
 .recipes {
@@ -18,7 +23,7 @@
 .basket {
   z-index: 1;
   position: fixed;
-  top: 82px;
+  top: 115px;
   right: 16px;
   overflow: hidden;
   max-height: calc(100vh - 50px);
