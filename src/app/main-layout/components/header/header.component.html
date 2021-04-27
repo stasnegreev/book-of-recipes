@@ -15,8 +15,26 @@
     <app-search-input [(ngModel)]="queryValue"></app-search-input>
   </div>
   <div class="header__basket-button basket-button">
-    <button mat-mini-fab color="warn" [routerLink]="'/basket'" class="basket-button__btn">
-      <mat-icon class="basket-button__icon">library_books</mat-icon>
+    <button
+      (click)="onToggleBasket()"
+      *ngIf="!isBasketOpened"
+      mat-mini-fab
+      color="warn"
+      [routerLink]="'/basket'"
+      class="basket-button__btn"
+    >
+      <mat-icon class="basket-button__icon">shopping_cart</mat-icon>
+    </button>
+
+    <button
+      *ngIf="isBasketOpened"
+      (click)="onToggleBasket()"
+      mat-mini-fab
+      color="warn"
+      [routerLink]="'../'"
+      class="basket-button__btn"
+    >
+      <mat-icon class="basket-button__icon">close</mat-icon>
     </button>
   </div>
 </div>

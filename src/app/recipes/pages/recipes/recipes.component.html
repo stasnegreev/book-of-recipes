@@ -1,12 +1,32 @@
 <mat-spinner *ngIf="!((recipes$ | async)?.length)"
              class="spiner">
 </mat-spinner>
-<div *ngIf="(recipes$ | async)" class="container">
-  <ul class="recipes">
-    <li class="recipes__item" *ngFor="let recipe of recipes$ | async">
-      <app-recipe [recipe]="recipe"></app-recipe>
-    </li>
-  </ul>
-</div>
+
+<mat-tab-group
+  [headerPosition]="isMobile ? 'below' : 'above'"
+  mat-align-tabs="center"
+  mat-stretch-tabs
+  class="body"
+>
+  <mat-tab label="Все" *ngIf="type !== 'favorites'">
+    <div *ngIf="(recipes$ | async)" class="content">
+      <ul class="recipes">
+        <li class="recipes__item" *ngFor="let recipe of recipes$ | async">
+          <app-recipe [recipe]="recipe"></app-recipe>
+        </li>
+      </ul>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Избранные" [disabled]="type === 'favorites'">
+    <div *ngIf="(recipes$ | async)" class="content">
+      <ul class="recipes">
+        <li class="recipes__item" *ngFor="let recipe of recipes$ | async">
+          <app-recipe [recipe]="recipe" *ngIf="recipe.groups?.includes('favorites')"></app-recipe>
+        </li>
+      </ul>
+    </div>
+  </mat-tab>
+</mat-tab-group>
 
 <app-basket-modal #basket class="basket"></app-basket-modal>
